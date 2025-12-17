@@ -4,7 +4,8 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.har
 
 public class Robot {
     private static final Rail rail = new Rail(hardwareMap.crservo.get("railLeft"), hardwareMap.crservo.get("railRight"));
-
+    public Robot(){
+    }
     public Rail getRail() {
         return rail;
     }

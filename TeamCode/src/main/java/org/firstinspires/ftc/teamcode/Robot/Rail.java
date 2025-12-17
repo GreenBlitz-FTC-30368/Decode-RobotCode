@@ -9,7 +9,7 @@ public class Rail {
 
     private final CRServo crServoRight;
 
-    private static final double maxSpeed = 12;
+    private static final double maxPower = 1;
 
     public Rail(CRServo crServoLeft, CRServo crServoRight){
         this.crServoLeft=crServoLeft;
@@ -20,15 +20,15 @@ public class Rail {
     public void moveRailForward(){
         crServoRight.setDirection(DcMotorSimple.Direction.FORWARD);
         crServoLeft.setDirection(DcMotorSimple.Direction.FORWARD);
-        crServoLeft.setPower(maxSpeed/4);
-        crServoRight.setPower(maxSpeed/4);
+        crServoLeft.setPower(maxPower /4);
+        crServoRight.setPower(maxPower /4);
     }
 
     public void moveRailBackwards(){
         crServoLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         crServoRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        crServoRight.setPower(maxSpeed/4);
-        crServoLeft.setPower(maxSpeed/4);
+        crServoRight.setPower(maxPower /4);
+        crServoLeft.setPower(maxPower /4);
     }
 
     public void stopRail(){
