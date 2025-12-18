@@ -11,13 +11,19 @@ public class JoystickBindings {
         this.gamepad2=gamepad2;
     }
     public void mainJoystickButtons(Robot robot){
-        if(gamepad1.x){
-            robot.getFlywheel().whenShooting();
+        if(gamepad1.x){//shooting
+            if (robot.getFlywheel().getState()==Flywheel.WheelState.SHOOTING){
+                robot.getFlywheel().setState(Flywheel.WheelState.SPINNING);
+            } else {
+                robot.getFlywheel().setState(Flywheel.WheelState.SHOOTING);
+            }
         }
-        if(gamepad1.y){
-            robot.getFlywheel().normalSpin();
+        if(gamepad1.y){//normal spin
+            if (robot.getFlywheel().getState()==Flywheel.WheelState.INACTIVE){
+                robot.getFlywheel().setState(Flywheel.WheelState.SHOOTING);
+            } else {
+                robot.getFlywheel().setState(Flywheel.WheelState.INACTIVE);
+            }
         }
-        if(gamepad1.back)
-            robot.getFlywheel().stop();
     }
 }

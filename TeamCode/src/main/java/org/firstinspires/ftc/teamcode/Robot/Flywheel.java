@@ -5,23 +5,23 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class Flywheel {
     private final DcMotor flywheelMotor;
 
-    private static final double spinWhileNotShooting = 0.2;
-
-    private static final double spinWhileShooting = 0.8;
-
-    public Flywheel(DcMotor flywheelMotor){
-        this.flywheelMotor=flywheelMotor;
+    public enum WheelState{
+        SHOOTING(0.8),
+        SPINNING(0.2),
+        INACTIVE(0);
+        public double power = 0;
+        WheelState(double power){
+            this.power = power;
+        }
     }
-
-    public void normalSpin(){
-        flywheelMotor.setPower(spinWhileNotShooting);
+    private WheelState state = WheelState.INACTIVE;
+    public WheelState getState(){
+        return state;
     }
-
-    public void whenShooting(){
-        flywheelMotor.setPower(spinWhileShooting);
-    }
-
-    public void stop(){
-        flywheelMotor.setPower(0);
+    public Flywheel(DcMotor flywheelMotor)
+    {this.flywheelMotor=flywheelMotor;}
+     public void setState(WheelState state){
+        flywheelMotor.setPower(state.power);
+        this.state=state;
     }
 }
