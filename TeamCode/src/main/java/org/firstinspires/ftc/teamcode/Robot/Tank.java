@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.Robot;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
 public class Tank {
     private final DcMotor leftMotor;
     private final DcMotor rightMotor;
@@ -7,6 +9,8 @@ public class Tank {
     public Tank(DcMotor rightMotor, DcMotor leftMotor){
         this.leftMotor=leftMotor;
         this.rightMotor=rightMotor;
+        leftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
     public void moveWithStickXY(double stickX, double stickY) {
         double left = stickY - stickX;
