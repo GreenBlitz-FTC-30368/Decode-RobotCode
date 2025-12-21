@@ -11,5 +11,13 @@ public class JoystickBindings {
         this.gamepad2=gamepad2;
     }
     public void mainJoystickButtons(Robot robot){
+        if(gamepad1.a)
+            robot.getRail().moveRailForward();
+        else if(gamepad1.b)
+            robot.getRail().moveRailBackwards();
+        else
+            robot.getRail().stopRail();
+
+
     }
 }
