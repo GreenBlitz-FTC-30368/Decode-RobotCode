@@ -27,4 +27,8 @@ public class Robot {
     public Flywheel getFlywheel() {
         return flywheel;
     }
+
+    public Tank getTank() {
+        return tank;
+    }
 }

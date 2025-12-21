@@ -17,7 +17,7 @@ public class JoystickBindings {
             robot.getRail().moveRailBackwards();
         else
             robot.getRail().stopRail();
-
+        robot.getTank().goToPosition(Math.atan2(gamepad1.left_stick_y, gamepad1.left_stick_x), gamepad1.left_stick_y);
 
         if(gamepad1.x){
             robot.getFlywheel().whenShooting();
