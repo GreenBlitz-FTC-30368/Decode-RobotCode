@@ -2,16 +2,27 @@ package org.firstinspires.ftc.teamcode.Robot;
 
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 
-public class Robot {
-    private static final Rail rail = new Rail(hardwareMap.crservo.get("railLeft"), hardwareMap.crservo.get("railRight"));
-    private static final Flywheel flywheel = new Flywheel(hardwareMap.dcMotor.get("flywheelMotor"));
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
-    public Robot(){
+public class Robot {
+    private final Rail rail;
+    private final Flywheel flywheel;
+
+    public Robot(HardwareMap hardwareMap) {
+        rail = new Rail(
+                hardwareMap.crservo.get("railLeft"),
+                hardwareMap.crservo.get("railRight")
+        );
+        flywheel = new Flywheel(
+                hardwareMap.dcMotor.get("flywheelMotor")
+        );
     }
+
     public Rail getRail() {
         return rail;
+    }
 
-    public Flywheel getFlywheel(){
-        return this.flywheel;
+    public Flywheel getFlywheel() {
+        return flywheel;
     }
 }
