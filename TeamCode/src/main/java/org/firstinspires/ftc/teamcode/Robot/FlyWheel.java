@@ -18,9 +18,8 @@ public class FlyWheel {
     public enum WheelState{
         INACTIVE(0),
         SPINNING(0.2),
-        SHOOTING(0.8);
-
-        double speed;
+        SHOOTING(0.6);
+        final double speed;
         WheelState(double speed){
             this.speed=speed;
         }
@@ -33,4 +32,7 @@ public class FlyWheel {
         this.wheelState = wheelState;
         flywheel.setPower(wheelState.speed);
     }
+     public void setSpeed(double speed){
+        flywheel.setPower(speed);
+     }
 }

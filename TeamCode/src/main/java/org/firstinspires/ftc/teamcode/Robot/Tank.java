@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Robot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Gamepad;
 
 public class Tank {
     private final DcMotor leftMotor;
@@ -51,6 +52,7 @@ public class Tank {
         double right = stickY + stickX;
         rightMotor.setPower(right*powerPerVelocity);
         leftMotor.setPower(left*powerPerVelocity);
+
     }
     public void stop(){
         rightMotor.setPower(0);

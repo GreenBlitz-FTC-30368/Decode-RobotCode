@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 public class Rails {
     private final CRServo leftRail;
     private final CRServo rightRail;
-    private final double movePower=0.5;
+    private final double movePower=0.75;
     public Rails(CRServo rightRail, CRServo leftRail){
         this.leftRail=leftRail;
         this.rightRail=rightRail;
