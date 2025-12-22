@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode.Robot;
 
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
+@TeleOp
 public class JoystickBindings {
     public final Gamepad gamepad1;
     public final Gamepad gamepad2;

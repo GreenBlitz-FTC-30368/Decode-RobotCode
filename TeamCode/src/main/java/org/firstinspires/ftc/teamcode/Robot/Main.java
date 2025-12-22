@@ -1,0 +1,18 @@
+package org.firstinspires.ftc.teamcode.Robot;
+
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+@TeleOp
+public class Main extends OpMode {
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void loop() {
+
+    }
+    Robot robot = new Robot(hardwareMap);
+}
