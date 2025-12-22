@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.CRServo;
 
 import org.firstinspires.ftc.teamcode.Robot.FlyWheel;
+import org.firstinspires.ftc.teamcode.Robot.MathUtilBlitz;
 import org.firstinspires.ftc.teamcode.Robot.Tank;
 import org.firstinspires.ftc.teamcode.Robot.Rails;
 
@@ -30,5 +31,6 @@ public class RunRobot extends OpMode{
         }
         xPressedLastFrame = gamepad1.x;
         rails.setMoving(gamepad1.y);
+        tank.goToPosition(Math.atan2(gamepad1.right_stick_x, gamepad1.right_stick_y),gamepad1.left_stick_y);
     }
 }
