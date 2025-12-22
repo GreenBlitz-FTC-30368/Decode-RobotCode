@@ -22,7 +22,7 @@ public class Tank {
         if (!(MathUtilBlitz.isNear(0, degrees, tolerance) || MathUtilBlitz.isNear(180, reasonablePower, tolerance) && degrees > 0)) {
             rightMotor.setPower(reasonablePower * ratioForTurn);
             leftMotor.setPower(reasonablePower);
-        } else if (!(MathUtilBlitz.isNear(0, degrees, tolerance) || MathUtilBlitz.isNear(180, degrees, tolerance))) {
+        } else if (!(MathUtilBlitz.isNear(0, degrees, tolerance) || MathUtilBlitz.isNear(-180, degrees, tolerance))) {
             rightMotor.setPower(reasonablePower);
             leftMotor.setPower(reasonablePower * ratioForTurn);
         } else {
