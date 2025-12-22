@@ -31,6 +31,6 @@ public class RunRobot extends OpMode{
         }
         xPressedLastFrame = gamepad1.x;
         rails.setMoving(gamepad1.y);
-        tank.goToPosition(Math.atan2(gamepad1.right_stick_x, gamepad1.right_stick_y),gamepad1.left_stick_y);
+        tank.goToPosition(MathUtilBlitz.radianToDegree(Math.atan2(gamepad1.right_stick_x, gamepad1.right_stick_y)),gamepad1.left_stick_y);
     }
 }

@@ -8,4 +8,8 @@ public class MathUtilBlitz {
         }
         return Math.abs(expected - actual) < tolerance;
     }
+
+    public static double radianToDegree(double radian){
+        return radian*180/Math.PI;
+    }
 }
