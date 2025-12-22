@@ -10,15 +10,11 @@ public class Tank {
         this.leftMotor=leftMotor;
         this.rightMotor=rightMotor;
         leftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
     public void moveWithStickXY(double stickX, double stickY) {
         double left = stickY - stickX;
         double right = stickY + stickX;
-        if (Math.max(left,right)>1){
-            left/=Math.max(left,right);
-            right/=Math.max(left,right);
-        }
         rightMotor.setPower(right*powerPerVelocity);
         leftMotor.setPower(left*powerPerVelocity);
     }
