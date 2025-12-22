@@ -25,7 +25,7 @@ public class RunRobot extends OpMode{
     }
     @Override
     public void loop(){
-        tank.moveWithStickXY(gamepad1.right_stick_x, gamepad1.left_stick_y);
+        //tank.moveWithStickXY(gamepad1.right_stick_x, gamepad1.left_stick_y);
         if (gamepad1.x&&!xPressedLastFrame){
             flyWheel.toggleState();
         }
