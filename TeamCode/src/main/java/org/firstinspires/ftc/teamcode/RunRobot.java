@@ -32,6 +32,9 @@ public class RunRobot extends OpMode{
         if (gamepad1.x){
             flyWheel.setState(flyWheel.getState()== FlyWheel.WheelState.INACTIVE?FlyWheel.WheelState.SHOOTING:FlyWheel.WheelState.INACTIVE);
         }
+        if (gamepad1.a){
+            flyWheel.setState(flyWheel.getState()==FlyWheel.WheelState.SPINNING?FlyWheel.WheelState.SHOOTING:FlyWheel.WheelState.SPINNING);
+        }
         xPressedLastFrame = gamepad1.x;
         railsMoving = railsMoving&&!gamepad1.yWasReleased()|| gamepad1.yWasPressed();
         rails.setMoving(railsMoving);

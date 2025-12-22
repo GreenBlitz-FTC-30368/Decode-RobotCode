@@ -49,8 +49,8 @@ public class Tank {
     public void moveWithStickXY(double stickX, double stickY) {
         double left = stickY - stickX;
         double right = stickY + stickX;
-        rightMotor.setPower(right*powerPerVelocity/2);
-        leftMotor.setPower(left*powerPerVelocity/2);
+        rightMotor.setPower(right*powerPerVelocity);
+        leftMotor.setPower(left*powerPerVelocity);
     }
     public void stop(){
         rightMotor.setPower(0);

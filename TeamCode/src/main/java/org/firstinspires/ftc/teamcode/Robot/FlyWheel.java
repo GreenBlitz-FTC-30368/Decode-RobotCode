@@ -18,7 +18,7 @@ public class FlyWheel {
     public enum WheelState{
         INACTIVE(0),
         SPINNING(0.2),
-        SHOOTING(0.5);
+        SHOOTING(0.8);
 
         double speed;
         WheelState(double speed){
