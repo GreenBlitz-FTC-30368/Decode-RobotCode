@@ -6,7 +6,7 @@ public class Tank {
     private final DcMotor leftMotor;
     private final DcMotor rightMotor;
 
-    private static final double ratioForTurn = 0.8;
+    private static final double ratioForTurn = 0.4;
     private static final double powerPerVelocity = 1;
 
     public static final double tolerance = 30;
@@ -14,7 +14,7 @@ public class Tank {
         this.leftMotor=leftMotor;
         this.rightMotor=rightMotor;
         leftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
     public void goToPosition(double degrees, double power) {
@@ -49,8 +49,8 @@ public class Tank {
     public void moveWithStickXY(double stickX, double stickY) {
         double left = stickY - stickX;
         double right = stickY + stickX;
-        rightMotor.setPower(right*powerPerVelocity);
-        leftMotor.setPower(left*powerPerVelocity);
+        rightMotor.setPower(right*powerPerVelocity/2);
+        leftMotor.setPower(left*powerPerVelocity/2);
     }
     public void stop(){
         rightMotor.setPower(0);

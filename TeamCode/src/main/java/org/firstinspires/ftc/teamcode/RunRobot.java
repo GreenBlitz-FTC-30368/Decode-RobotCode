@@ -16,10 +16,12 @@ public class RunRobot extends OpMode{
     Rails rails = null;
     boolean xPressedLastFrame = false;
     boolean railsMoving=false;
+    DcMotor leftWheel;
+    DcMotor rightWheel;
     @Override
     public void init(){
-        DcMotor leftWheel = hardwareMap.get(DcMotor.class,"leftWheel");
-        DcMotor rightWheel = hardwareMap.get(DcMotor.class,"rightWheel");
+        leftWheel = hardwareMap.get(DcMotor.class,"leftWheel");
+        rightWheel = hardwareMap.get(DcMotor.class,"rightWheel");
         flyWheel = new FlyWheel(hardwareMap.get(DcMotor.class,"flyWheel"));
         tank = new Tank(rightWheel,leftWheel);
         rails = new Rails(hardwareMap.get(CRServo.class,"rightRail"),hardwareMap.get(CRServo.class,"leftRail"));
@@ -33,6 +35,9 @@ public class RunRobot extends OpMode{
         xPressedLastFrame = gamepad1.x;
         railsMoving = railsMoving&&!gamepad1.yWasReleased()|| gamepad1.yWasPressed();
         rails.setMoving(railsMoving);
-        tank.goToPosition(MathUtilBlitz.radianToDegree(Math.atan2(gamepad1.right_stick_y, gamepad1.right_stick_x)),gamepad1.left_stick_y);
+
+        //tank.goToPosition(MathUtilBlitz.radianToDegree(Math.atan2(gamepad1.right_stick_y, gamepad1.right_stick_x)),gamepad1.left_stick_y);
+        leftWheel.setPower(Math.min(gamepad1.left_stick_y-gamepad1.left_stick_x,1));
+        rightWheel.setPower(Math.min(gamepad1.left_stick_y+gamepad1.left_stick_x,1));
     }
 }
