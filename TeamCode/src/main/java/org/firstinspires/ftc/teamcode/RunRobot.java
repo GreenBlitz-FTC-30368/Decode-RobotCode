@@ -15,6 +15,7 @@ public class RunRobot extends OpMode{
     FlyWheel flyWheel = null;
     Rails rails = null;
     boolean xPressedLastFrame = false;
+    boolean railsMoving=false;
     @Override
     public void init(){
         DcMotor leftWheel = hardwareMap.get(DcMotor.class,"leftWheel");
@@ -25,12 +26,13 @@ public class RunRobot extends OpMode{
     }
     @Override
     public void loop(){
-        //tank.moveWithStickXY(gamepad1.right_stick_x, gamepad1.left_stick_y);
-        if (gamepad1.x&&!xPressedLastFrame){
-            flyWheel.toggleState();
+        //tank.moveWithStickXY(gamepad1.left_stick_x, gamepad1.right_stick_y);
+        if (gamepad1.x){
+            flyWheel.setState(flyWheel.getState()== FlyWheel.WheelState.INACTIVE?FlyWheel.WheelState.SHOOTING:FlyWheel.WheelState.INACTIVE);
         }
         xPressedLastFrame = gamepad1.x;
-        rails.setMoving(gamepad1.y);
-        tank.goToPosition(MathUtilBlitz.radianToDegree(Math.atan2(gamepad1.right_stick_x, gamepad1.right_stick_y)),gamepad1.left_stick_y);
+        railsMoving = railsMoving&&!gamepad1.yWasReleased()|| gamepad1.yWasPressed();
+        rails.setMoving(railsMoving);
+        tank.goToPosition(MathUtilBlitz.radianToDegree(Math.atan2(gamepad1.right_stick_y, gamepad1.right_stick_x)),gamepad1.left_stick_y);
     }
 }

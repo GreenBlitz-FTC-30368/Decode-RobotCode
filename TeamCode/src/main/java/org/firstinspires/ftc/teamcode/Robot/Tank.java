@@ -6,10 +6,10 @@ public class Tank {
     private final DcMotor leftMotor;
     private final DcMotor rightMotor;
 
-    private static final double ratioForTurn = 4/5;
+    private static final double ratioForTurn = 0.8;
     private static final double powerPerVelocity = 1;
 
-    public static final double tolerance = 20;
+    public static final double tolerance = 30;
     public Tank(DcMotor rightMotor, DcMotor leftMotor){
         this.leftMotor=leftMotor;
         this.rightMotor=rightMotor;
@@ -18,7 +18,7 @@ public class Tank {
     }
 
     public void goToPosition(double degrees, double power) {
-        double reasonablePower = 0.6 * power;
+        double reasonablePower = 0.8 * power;
         if (!(MathUtilBlitz.isNear(0, degrees, tolerance) || MathUtilBlitz.isNear(180, reasonablePower, tolerance) && degrees > 0)) {
             rightMotor.setPower(reasonablePower * ratioForTurn);
             leftMotor.setPower(reasonablePower);
