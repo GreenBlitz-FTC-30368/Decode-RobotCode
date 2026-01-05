@@ -11,5 +11,9 @@ public class JoystickBindings {
         this.gamepad2=gamepad2;
     }
     public void mainJoystickButtons(Robot robot){
+        if (gamepad1.right_trigger>0.5)
+            robot.rail.go();
+        else
+            robot.rail.stop();
     }
 }
