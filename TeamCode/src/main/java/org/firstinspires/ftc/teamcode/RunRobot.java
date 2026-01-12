@@ -5,11 +5,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.CRServo;
 
 import org.firstinspires.ftc.teamcode.Robot.FlyWheel;
-import org.firstinspires.ftc.teamcode.Robot.MathUtilBlitz;
 import org.firstinspires.ftc.teamcode.Robot.Tank;
 import org.firstinspires.ftc.teamcode.Robot.Rails;
 
-//@TeleOp(name="test1")
+@TeleOp(name = "test2")
 public class RunRobot extends OpMode{
     Tank tank = null;
     FlyWheel flyWheel = null;
@@ -35,9 +34,6 @@ public class RunRobot extends OpMode{
         if (gamepad1.x){
             flyWheel.setState(flyWheel.getState()== FlyWheel.WheelState.INACTIVE?FlyWheel.WheelState.SHOOTING:FlyWheel.WheelState.INACTIVE);
         }
-//        if (gamepad1.a){
-//            flyWheel.setState(flyWheel.getState()==FlyWheel.WheelState.SPINNING?FlyWheel.WheelState.SHOOTING:FlyWheel.WheelState.SPINNING);
-//        }
 
         xPressedLastFrame = gamepad1.x;
         railsMoving = railsMoving&&!gamepad1.yWasReleased()|| gamepad1.yWasPressed();
@@ -45,14 +41,16 @@ public class RunRobot extends OpMode{
 
 
         //tank.goToPosition(MathUtilBlitz.radianToDegree(Math.atan2(gamepad1.right_stick_y, gamepad1.right_stick_x)),gamepad1.left_stick_y);
-        double leftV=gamepad1.right_stick_y-gamepad1.left_stick_x;
-        double rightV=gamepad1.right_stick_y+gamepad1.left_stick_x;
-        double sum = Math.abs(leftV)+Math.abs(rightV);
-        if (sum>1){
-            leftV/=sum;
-            rightV/=sum;
+        double leftV=gamepad1.right_trigger-gamepad1.right_stick_x;
+        double rightV=gamepad1.right_trigger+gamepad1.right_stick_x;
+        double absoluteMax = Math.max(Math.abs(leftV),Math.abs(rightV));
+        telemetry.addData("bofore norm",""+leftV+" "+rightV);
+        if (absoluteMax >1){
+            leftV/= absoluteMax;
+            rightV/= absoluteMax;
         }
         leftWheel.setPower(leftV);
         rightWheel.setPower(rightV);
+        telemetry.addData("after norm",""+leftV+" "+rightV);
     }
 }
