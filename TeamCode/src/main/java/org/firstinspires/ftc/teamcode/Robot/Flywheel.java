@@ -1,27 +1,27 @@
 package org.firstinspires.ftc.teamcode.Robot;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 public class Flywheel {
-    private final DcMotor flywheelMotor;
+    private DcMotor flywheel;
 
-    private static final double spinWhileNotShooting = 0.2;
+    public Flywheel(DcMotor flywheel) {
+        flywheel.setDirection(DcMotorSimple.Direction.FORWARD);
+        this.flywheel = flywheel;
 
-    private static final double spinWhileShooting = 0.8;
-
-    public Flywheel(DcMotor flywheelMotor){
-        this.flywheelMotor=flywheelMotor;
     }
 
-    public void normalSpin(){
-        flywheelMotor.setPower(spinWhileNotShooting);
+    public void shoot() {
+        flywheel.setPower(0.68);
     }
 
-    public void whenShooting(){
-        flywheelMotor.setPower(spinWhileShooting);
+    public void preShoot(){
+        flywheel.setPower(0.5);
     }
 
-    public void stop(){
-        flywheelMotor.setPower(0);
+    public void stop() {
+
+        flywheel.setPower(0);
     }
 }
