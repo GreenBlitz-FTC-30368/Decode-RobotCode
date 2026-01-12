@@ -12,7 +12,7 @@ public class Main extends OpMode {
 
     @Override
     public void loop() {
-
+        robot.getFlywheel().preShoot();
     }
     Robot robot = new Robot(hardwareMap);
 }
