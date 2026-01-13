@@ -6,14 +6,16 @@ public class JoystickBindings {
     public final Gamepad gamepad1;
     public final Gamepad gamepad2;
 
-    public JoystickBindings(Gamepad gamepad1, Gamepad gamepad2){
-        this.gamepad1=gamepad1;
-        this.gamepad2=gamepad2;
+    public JoystickBindings(Gamepad gamepad1, Gamepad gamepad2) {
+        this.gamepad1 = gamepad1;
+        this.gamepad2 = gamepad2;
     }
-    public void mainJoystickButtons(Robot robot){
-        if (gamepad1.right_trigger>0.5)
-            robot.rail.go();
-        else
-            robot.rail.stop();
+
+    public void mainJoystickButtons(Robot robot) {
+        if (gamepad1.right_trigger > 0.5) {
+            robot.getRail().go();
+        } else {
+            robot.getRail().stop();
+        }
     }
 }
