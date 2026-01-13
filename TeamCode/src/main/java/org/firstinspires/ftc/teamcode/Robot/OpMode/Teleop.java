@@ -13,11 +13,11 @@ public class Teleop extends OpMode {
     @Override
     public void init() {
         robot = new Robot();
-        joystickBindings = new JoystickBindings()
+        joystickBindings = new JoystickBindings(gamepad1);
     }
 
     @Override
     public void loop() {
-        JoystickBindings.
+        joystickBindings.mainJoystickButtons(robot);
     }
 }
