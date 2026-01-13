@@ -19,6 +19,7 @@ public class Teleop extends OpMode {
     @Override
     public void loop() {
         joystickBindings.mainJoystickButtons(robot);
+        telemetry.addData("RailMode", robot.getRail().getMode());
     }
 
 }
