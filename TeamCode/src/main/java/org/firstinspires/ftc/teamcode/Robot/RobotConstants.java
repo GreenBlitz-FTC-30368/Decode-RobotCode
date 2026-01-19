@@ -1,5 +1,3 @@
 package org.firstinspires.ftc.teamcode.Robot;
 
-public class RobotConstants {
-
-}
+public class RobotConstants {}

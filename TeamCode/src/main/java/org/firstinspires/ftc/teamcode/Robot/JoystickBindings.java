@@ -10,10 +10,19 @@ public class JoystickBindings {
     }
 
     public void mainJoystickButtons(Robot robot) {
+        robot.getTank().goToPosition(Math.atan2(gamepad1.left_stick_y, gamepad1.left_stick_x), gamepad1.left_stick_y);
+
         if (gamepad1.right_trigger > 0.5) {
             robot.getRail().go();
         } else {
             robot.getRail().stop();
+        }
+
+        if (gamepad1.left_bumper) {
+            robot.getFlywheel().shoot();
+        }
+        if (gamepad1.back) {
+            robot.getFlywheel().stop();
         }
     }
 
