@@ -29,15 +29,15 @@ public class Robot {
 
     public Robot() {
         this.rail = new Rail(
-                hardwareMap.crservo.get("railRight"),
-                hardwareMap.crservo.get("railLeft")
+                hardwareMap.crservo.get("rightRail"),
+                hardwareMap.crservo.get("leftRail")
         );
         flywheel = new Flywheel(
                 hardwareMap.dcMotor.get("flywheelMotor")
         );
         tank = new Tank(
-                hardwareMap.dcMotor.get("tankRight"),
-                hardwareMap.dcMotor.get("tankLeft")
+                hardwareMap.dcMotor.get("rightTank"),
+                hardwareMap.dcMotor.get("leftTank")
         );
     }
 
