@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 public class Flywheel {
+    public static final int wheelAccelerationTimeMS = 1000;
     private final DcMotor flywheel;
 
     public Flywheel(DcMotor flywheel) {
