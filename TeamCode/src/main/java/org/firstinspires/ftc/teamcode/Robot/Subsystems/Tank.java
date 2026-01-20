@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.Robot.MathUtilBlitz;
 public class Tank {
     private final DcMotor leftMotor;
     private final DcMotor rightMotor;
+    private final double powerPerVelocity=1;
 
     private static final double fixedAngleRatio = 4/5;
     private static final double tolerance = 0.05;
@@ -29,6 +30,16 @@ public class Tank {
             leftMotor.setPower(reasonablePower);
             rightMotor.setPower(reasonablePower);
         }
+    }
+    public void moveWithStickXY(double stickX, double stickY) {
+        double left = stickY - stickX;
+        double right = stickY + stickX;
+        if (Math.max(left,right)>1){
+            left/=Math.max(left,right);
+            right/=Math.max(left,right);
+        }
+        rightMotor.setPower(right*powerPerVelocity);
+        leftMotor.setPower(left*powerPerVelocity);
     }
 
     public void stop(){
