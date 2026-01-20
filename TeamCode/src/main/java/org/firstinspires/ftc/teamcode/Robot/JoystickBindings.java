@@ -1,33 +1,29 @@
 package org.firstinspires.ftc.teamcode.Robot;
 
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-@TeleOp
 public class JoystickBindings {
     public final Gamepad gamepad1;
-    public final Gamepad gamepad2;
 
-    public JoystickBindings(Gamepad gamepad1, Gamepad gamepad2){
-        this.gamepad1=gamepad1;
-        this.gamepad2=gamepad2;
+    public JoystickBindings(Gamepad gamepad1) {
+        this.gamepad1 = gamepad1;
     }
-    public void mainJoystickButtons(Robot robot){
-        if(gamepad1.a)
-            robot.getRail().moveRailForward();
-        else if(gamepad1.b)
-            robot.getRail().moveRailBackwards();
-        else
-            robot.getRail().stopRail();
+
+    public void mainJoystickButtons(Robot robot) {
         robot.getTank().goToPosition(Math.atan2(gamepad1.left_stick_y, gamepad1.left_stick_x), gamepad1.left_stick_y);
 
-        if(gamepad1.x){
-            robot.getFlywheel().whenShooting();
+        if (gamepad1.right_trigger > 0.5) {
+            robot.getRail().go();
+        } else {
+            robot.getRail().stop();
         }
-        if(gamepad1.y){
-            robot.getFlywheel().normalSpin();
+
+        if (gamepad1.left_bumper) {
+            robot.getFlywheel().shoot();
         }
-        if(gamepad1.back)
+        if (gamepad1.back) {
             robot.getFlywheel().stop();
+        }
     }
+
 }
