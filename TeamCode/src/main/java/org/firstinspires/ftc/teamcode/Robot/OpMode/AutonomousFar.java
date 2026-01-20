@@ -8,10 +8,11 @@ import org.firstinspires.ftc.teamcode.Robot.Robot;
 @Autonomous(name="far67")
 public class AutonomousFar extends LinearOpMode {
     private Robot robot = new Robot(hardwareMap);
+    private static final int moveForMS=2000;
     @Override
     public void runOpMode(){
         robot.getTank().moveWithStickXY(0,1);
-        sleep(2000);
+        sleep(moveForMS);
         robot.getTank().stop();
     }
 }
