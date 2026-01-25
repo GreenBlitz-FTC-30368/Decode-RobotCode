@@ -4,20 +4,21 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.Robot.Robot;
+import org.firstinspires.ftc.teamcode.Robot.RobotConstants;
 import org.firstinspires.ftc.teamcode.Robot.Subsystems.Flywheel;
 
-@Autonomous(name="close67")
+@Autonomous(name = "close auto67")
 public class AutonomousClose extends LinearOpMode {
-    private static final int timeToShoot3ArtifactsMS = 1000;
     private Robot robot = new Robot(hardwareMap);
+
     @Override
-    public void runOpMode(){
+    public void runOpMode() {
         robot.getFlywheel().shoot();
-        sleep(Flywheel.wheelAccelerationTimeMS);
+        sleep(RobotConstants.wheelAccelerationTimeMS);
         robot.getRail().go();
-        sleep(timeToShoot3ArtifactsMS);
+        sleep(RobotConstants.timeToShoot3ArtifactsMS);
         robot.getRail().stop();
         robot.getFlywheel().stop();
-
     }
+
 }

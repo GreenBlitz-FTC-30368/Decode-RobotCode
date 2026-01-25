@@ -35,4 +35,5 @@ public class Rail {
     public String getMode() {
         return mode;
     }
+
 }
