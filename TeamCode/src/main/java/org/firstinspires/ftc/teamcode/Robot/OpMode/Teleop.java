@@ -1,10 +1,11 @@
 package org.firstinspires.ftc.teamcode.Robot.OpMode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Robot.JoystickBindings;
 import org.firstinspires.ftc.teamcode.Robot.Robot;
-
+@TeleOp(name="teleop1")
 public class Teleop extends OpMode {
 
     private Robot robot;
@@ -12,7 +13,7 @@ public class Teleop extends OpMode {
 
     @Override
     public void init() {
-        robot = new Robot();
+        robot = new Robot(this.hardwareMap);
         joystickBindings = new JoystickBindings(gamepad1);
     }
 

@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.Robot;
 
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
 import org.firstinspires.ftc.teamcode.Robot.Subsystems.Flywheel;
 import org.firstinspires.ftc.teamcode.Robot.Subsystems.Rail;
 import org.firstinspires.ftc.teamcode.Robot.Subsystems.Tank;
@@ -27,7 +29,7 @@ public class Robot {
     private final Flywheel flywheel;
     private final Tank tank;
 
-    public Robot() {
+    public Robot(HardwareMap hardwareMap) {
         this.rail = new Rail(
                 hardwareMap.crservo.get("railRight"),
                 hardwareMap.crservo.get("railLeft")
