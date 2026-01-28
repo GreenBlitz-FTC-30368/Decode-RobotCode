@@ -14,9 +14,9 @@ public class Tank {
         this.rightMotor = rightMotor;
     }
 
-    public void moveWithStickXY(double stickX, double stickY) {
-        double left = stickY - stickX;
-        double right = stickY + stickX;
+    public void moveWithStickXY(double stickY, double stickX) {
+        double left = stickX - stickY;
+        double right = stickX + stickY;
 
         if (Math.max(Math.abs(left), Math.abs(right)) > 1) {
             left /= Math.max(left, right);
