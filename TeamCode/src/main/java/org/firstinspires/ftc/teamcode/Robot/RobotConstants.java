@@ -9,4 +9,6 @@ public class RobotConstants {
     public static final double tankWheelRadiusCm = 9.6;
     public static final double tankMaxVelocityCmPerMinute = tankRPM*tankWheelRadiusCm*Math.PI*2;
     public static final double distanceToShootCm = 50;
+    //public static final double distanceBetweenFrontWheelsCm = 0;
+    public static final double tileSizeCm=60.96;
 }
