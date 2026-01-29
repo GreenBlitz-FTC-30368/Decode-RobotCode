@@ -13,6 +13,7 @@ public class AutonomousFar extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+        waitForStart();
         robot = new Robot(hardwareMap);
         robot.getTank().moveWithStickXY(0, 1);
         sleep(farAutoMoveForMS);
