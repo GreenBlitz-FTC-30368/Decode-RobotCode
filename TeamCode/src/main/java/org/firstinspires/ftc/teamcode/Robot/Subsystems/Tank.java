@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Robot.Subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.Robot.MathUtilBlitz;
 
@@ -12,6 +13,8 @@ public class Tank {
     public Tank(DcMotor rightMotor, DcMotor leftMotor) {
         this.leftMotor = leftMotor;
         this.rightMotor = rightMotor;
+        rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
 
     public void moveWithStickXY(double stickX, double stickY) {

@@ -12,7 +12,7 @@ public class AutonomousClose extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        robot.getTank().moveWithStickXY(0,1);
+        robot.getTank().moveWithStickXY(0,-1);
         sleep((long) (RobotConstants.distanceToShootCm/RobotConstants.tankMaxVelocityCmPerMinute *600000));
         robot.getTank().stop();
 
