@@ -12,7 +12,7 @@ public class Flywheel {
     }
 
     public void shoot() {
-        flywheel.setPower(0.68);
+        flywheel.setPower(0.6);
     }
 
     public void stop() {

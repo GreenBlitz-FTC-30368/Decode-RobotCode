@@ -8,11 +8,12 @@ import org.firstinspires.ftc.teamcode.Robot.Robot;
 
 @Autonomous(name = "far auto67")
 public class AutonomousFar extends LinearOpMode {
-    private Robot robot = new Robot(hardwareMap);
+    private Robot robot;
     private static final int farAutoMoveForMS = 2000;
 
     @Override
     public void runOpMode() {
+        robot = new Robot(hardwareMap);
         robot.getTank().moveWithStickXY(0, 1);
         sleep(farAutoMoveForMS);
         robot.getTank().stop();

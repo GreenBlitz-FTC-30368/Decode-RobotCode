@@ -8,10 +8,11 @@ import org.firstinspires.ftc.teamcode.Robot.RobotConstants;
 
 @Autonomous(name = "close auto67")
 public class AutonomousClose extends LinearOpMode {
-    private Robot robot = new Robot(hardwareMap);
+    private Robot robot;
 
     @Override
     public void runOpMode() {
+        robot = new Robot(hardwareMap);
         robot.getTank().moveWithStickXY(0,-1);
         sleep((long) (RobotConstants.distanceToShootCm/RobotConstants.tankMaxVelocityCmPerMinute *600000));
         robot.getTank().stop();
