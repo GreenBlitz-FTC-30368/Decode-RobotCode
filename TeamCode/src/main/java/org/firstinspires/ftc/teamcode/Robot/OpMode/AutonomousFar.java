@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.ftccommon.internal.manualcontrol.parameters.ImuParameters;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
 import org.firstinspires.ftc.teamcode.Robot.MathUtilBlitz;
 import org.firstinspires.ftc.teamcode.Robot.Robot;
@@ -28,19 +29,25 @@ public class AutonomousFar extends LinearOpMode {
     @Override
     public void runOpMode() {
         waitForStart();
-        imu.resetYaw();
         imu = hardwareMap.get(IMU.class, "imu");
-        IMU.Parameters meow = new IMU.Parameters((new RevHubOrientationOnRobot(RevHubOrientationOnRobot.LogoFacingDirection.FORWARD,
+        IMU.Parameters meow = new IMU.Parameters((new RevHubOrientationOnRobot(RevHubOrientationOnRobot.LogoFacingDirection.UP,
                 RevHubOrientationOnRobot.UsbFacingDirection.FORWARD)));
-        double angleYaw = imu.getRobotYawPitchRollAngles().getYaw();
-        double targetYaw=45;
+        double angleYaw;
+        imu.resetYaw();
+        angleYaw=imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES);
+        double targetYaw=angleYaw+12.5;
+        telemetry.addData("starting Yaw",angleYaw);
+        telemetry.update();
         robot = new Robot(hardwareMap);
         moveForTiles(farAutoTilesBeforeTurn);
         boolean isAtPosition = false;
-        while(!isAtPosition){
-            angleYaw=imu.getRobotYawPitchRollAngles().getYaw();
-            robot.getTank().moveWithStickXY(m*(targetYaw-angleYaw)/360,0);
-            isAtPosition = Math.abs(targetYaw-angleYaw)<1;
+        double originalDelta = targetYaw-angleYaw;
+        while(!isAtPosition&&opModeIsActive()){
+            telemetry.addData("current Yaw",angleYaw);
+            telemetry.update();
+            angleYaw=imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES);
+            robot.getTank().moveWithStickXY(m*(targetYaw-angleYaw)/originalDelta,0);
+            isAtPosition = targetYaw-angleYaw<5;
         }
         robot.getFlywheel().shoot();
         moveForTiles(farAutoTilesAfterTurn);
@@ -50,6 +57,7 @@ public class AutonomousFar extends LinearOpMode {
             robot.getRail().stop();
             sleep(RobotConstants.timeBetweenArtifactShootings);
         }
+        robot.getRail().stop();
 
     }
 }
