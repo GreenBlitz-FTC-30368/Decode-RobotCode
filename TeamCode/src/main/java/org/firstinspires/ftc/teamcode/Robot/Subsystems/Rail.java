@@ -25,7 +25,7 @@ public class Rail {
     }
 
     public void go() {
-        servoRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        servoRight.setDirection(DcMotorSimple.Direction.REVERSE);
         servoLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         servoLeft.setPower(0.6);
         servoRight.setPower(0.6);
