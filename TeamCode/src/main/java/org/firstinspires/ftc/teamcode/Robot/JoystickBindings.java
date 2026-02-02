@@ -37,7 +37,7 @@ public class JoystickBindings {
     }
 
     public void mainJoystickButtonsMecha(RobotMecha robot) {
-        robot.getTank().moveWithStickXY(gamepad1.left_stick_x, gamepad1.right_stick_y);
+        robot.getMechanum().moveWithStickXY(gamepad1.left_stick_x, gamepad1.right_stick_y);
 
         if (gamepad1.right_trigger > 0.5) {
             robot.getRail().go();
@@ -58,7 +58,7 @@ public class JoystickBindings {
         if(gamepad1.psWasPressed()){
             robot.getFlywheel().stop();
             robot.getRail().stop();
-            robot.getTank().stop();
+            robot.getMechanum().stop();
         }
 
     }
