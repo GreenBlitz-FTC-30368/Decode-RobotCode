@@ -18,17 +18,17 @@ public class JoystickBindings {
             robot.getRail().stop();
         }
 
-        if (gamepad1.left_trigger>0.1) {
+        if (gamepad1.left_trigger > 0.1) {
             robot.getFlywheel().shoot();
         }
 
-        if(gamepad1.left_bumper)
+        if (gamepad1.left_bumper)
             robot.getFlywheel().stop();
 
         if (gamepad1.back) {
             robot.getFlywheel().stop();
         }
-        if(gamepad1.psWasPressed()){
+        if (gamepad1.psWasPressed()) {
             robot.getFlywheel().stop();
             robot.getRail().stop();
             robot.getTank().stop();

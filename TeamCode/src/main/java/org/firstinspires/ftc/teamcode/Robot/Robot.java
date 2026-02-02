@@ -13,7 +13,7 @@ public class Robot {
 
     public Robot(HardwareMap hardwareMap) {
         this.rail = new Rail(
-                //hardwareMap.crservo.get("rightRail"),
+                hardwareMap.crservo.get("rightRail"),
                 hardwareMap.crservo.get("leftRail")
         );
         this.flywheel = new Flywheel(

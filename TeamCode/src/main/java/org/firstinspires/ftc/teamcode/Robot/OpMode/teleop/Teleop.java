@@ -5,7 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Robot.JoystickBindings;
 import org.firstinspires.ftc.teamcode.Robot.Robot;
-@TeleOp(name="teleop1")
+
+@TeleOp(name = "teleop1")
 public class Teleop extends OpMode {
 
     private Robot robot;
