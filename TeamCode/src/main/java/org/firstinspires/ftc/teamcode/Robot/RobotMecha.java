@@ -21,6 +21,24 @@ public class RobotMecha {
         this.flywheel = new Flywheel(
                 hardwareMap.dcMotor.get("flywheelMotor")
         );
-        this.mechanum = new MecanumDrive(hardwareMap, new Pose2d(0,0,0));
+        this.mechanum = new MecanumDrive(hardwareMap, new Pose2d(0,0,0)); //TODO: name calibration
     }
+
+    public Rail getRail() {return rail;}
+    public Flywheel getFlywheel() {return flywheel;}
+    public MecanumDrive getMechanum() {return mechanum;}
+
+//     .-. __ _ .-.
+//     |  `  / \  |
+//     /     '.()--\
+//    |         '._/
+//   _| O   _   O |_
+//   =\    '-'    /=
+//     '-._____.-'
+//     /`/\___/\`\
+//    /\/o     o\/\
+//   (_|         |_)
+//jgs  |____,____|
+//     (____|____)
+
 }
