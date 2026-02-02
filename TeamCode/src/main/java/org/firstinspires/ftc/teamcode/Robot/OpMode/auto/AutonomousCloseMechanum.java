@@ -11,32 +11,29 @@ import org.firstinspires.ftc.teamcode.Robot.RobotMecha;
 @Autonomous(name = "close auto mecha")
 public class AutonomousCloseMechanum extends LinearOpMode {
     private RobotMecha robot;
-
-    public static int timeMovingBackMS=500;
+    private final PoseVelocity2d forwardVelocity = new PoseVelocity2d(new Vector2d(1, 0), 0);
+    private final PoseVelocity2d reverseVelocity = new PoseVelocity2d(new Vector2d(-1, 0), 0);
+    public static int timeMovingBackMS = 500;
 
     @Override
     public void runOpMode() {
         waitForStart();
         robot = new RobotMecha(hardwareMap);
-        robot.getMechanum().setDrivePowers(new PoseVelocity2d(new Vector2d(1, 0), 0));
-        sleep((long) (RobotConstants.distanceToShootCm/RobotConstants.tankMaxVelocityCmPerMinute *60000));
+        robot.getMechanum().setDrivePowers(forwardVelocity);
+        sleep((long) (RobotConstants.distanceToShootCm / RobotConstants.tankMaxVelocityCmPerMinute * 60000));
         robot.getMechanum().stop();
 
         robot.getFlywheel().shoot();
         sleep(RobotConstants.wheelAccelerationTimeMS);
-        for (int i=0; i<3; i++) {
+        for (int i = 0; i < 3; i++) {
             robot.getRail().go();
             sleep(RobotConstants.timeToShootAnArtifactMS);
             robot.getRail().stop();
             sleep(RobotConstants.timeBetweenArtifactShootings);
         }
         robot.getFlywheel().stop();
-        robot.getMechanum().setDrivePowers(new PoseVelocity2d(new Vector2d(-1,0), 0));
+        robot.getMechanum().setDrivePowers(reverseVelocity);
         sleep(timeMovingBackMS);
         robot.getMechanum().stop();
-        /*s
-        robot.getTank().moveWithStickXY(0,1);
-        sleep(closeAutoMoveForMS);
-         */
     }
 }

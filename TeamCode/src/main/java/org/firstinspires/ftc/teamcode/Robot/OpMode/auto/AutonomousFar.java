@@ -26,8 +26,6 @@ public class AutonomousFar extends LinearOpMode {
     public void runOpMode() {
         waitForStart();
         imu = hardwareMap.get(IMU.class, "imu");
-        IMU.Parameters meow = new IMU.Parameters((new RevHubOrientationOnRobot(RevHubOrientationOnRobot.LogoFacingDirection.UP,
-                RevHubOrientationOnRobot.UsbFacingDirection.FORWARD)));
         double angleYaw;
         imu.resetYaw();
         angleYaw=imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES);
