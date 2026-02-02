@@ -23,7 +23,7 @@ public class AutonomousFar extends LinearOpMode {
     private void moveForTiles(double tiles){
         robot.getTank().moveWithStickXY(0,-1);
         sleep((long)(tiles*RobotConstants.tileSizeCm/RobotConstants.tankMaxVelocityCmPerMinute*60000));
-        robot.getTank().stop();
+        robot.getTank().stop();  //punch alon please
     }
 
     @Override
