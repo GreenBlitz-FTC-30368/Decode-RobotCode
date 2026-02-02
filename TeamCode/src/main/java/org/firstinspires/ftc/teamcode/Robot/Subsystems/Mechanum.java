@@ -39,5 +39,10 @@ public class Mechanum {
         blMotor.setPower(bl);
         brMotor.setPower(br);
     }
-
+    public void stop(){
+        flMotor.setPower(0);
+        frMotor.setPower(0);
+        blMotor.setPower(0);
+        brMotor.setPower(0);
+    }
 }
