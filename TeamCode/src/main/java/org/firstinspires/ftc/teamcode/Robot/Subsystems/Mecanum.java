@@ -2,6 +2,9 @@ package org.firstinspires.ftc.teamcode.Robot.Subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.HardwareDevice;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Mecanum {
     private final DcMotor flMotor;
@@ -36,6 +39,21 @@ public class Mecanum {
         frMotor.setPower(fr);
         blMotor.setPower(bl);
         brMotor.setPower(br);
+    }
+
+    public void moveWithGamepad(Gamepad gamepad){
+        moveWithXYAnglepower(gamepad.left_stick_x, gamepad.left_stick_y, gamepad.right_stick_x);
+    }
+
+    public Mecanum(HardwareMap hardwareMap){
+        this.flMotor = hardwareMap.dcMotor.get("frontLeftWheel");
+        this.frMotor = hardwareMap.dcMotor.get("frontRightWheel");
+        this.blMotor = hardwareMap.dcMotor.get("backLeftMotor");
+        this.brMotor = hardwareMap.dcMotor.get("backRightMotor");
+        frMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        brMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        flMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        blMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
     public void stop(){
         flMotor.setPower(0);
