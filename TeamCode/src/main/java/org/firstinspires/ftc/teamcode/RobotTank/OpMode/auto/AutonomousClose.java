@@ -1,10 +1,10 @@
-package org.firstinspires.ftc.teamcode.Robot.OpMode.auto;
+package org.firstinspires.ftc.teamcode.RobotTank.OpMode.auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.Robot.Robot;
-import org.firstinspires.ftc.teamcode.Robot.RobotConstants;
+import org.firstinspires.ftc.teamcode.RobotTank.Robot;
+import org.firstinspires.ftc.teamcode.RobotTank.RobotConstants;
 
 @Autonomous(name = "close auto67")
 public class AutonomousClose extends LinearOpMode {

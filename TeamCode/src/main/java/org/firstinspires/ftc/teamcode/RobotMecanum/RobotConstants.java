@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Robot;
+package org.firstinspires.ftc.teamcode.RobotMecanum;
 
 public class RobotConstants {
     public static final int wheelAccelerationTimeMS = 1000;
@@ -6,9 +6,8 @@ public class RobotConstants {
     public static final int timeBetweenArtifactShootings = 1000;
     public static final int RPM = 117;
     public static final double mecanumWheelRadiusCm = 5;
-    public static final double mecanumVerticalHorizontalVelocityCmPerMinute = RPM*mecanumWheelRadiusCm*Math.PI*2/Math.sqrt(2);
-//    public static final double tankWheelRadiusCm = 9.6;
-//    public static final double tankMaxVelocityCmPerMinute = RPM * tankWheelRadiusCm * Math.PI * 2;
+    public static final double mecanumVerticalHorizontalMaxVelocityCmPerMinute = RPM*mecanumWheelRadiusCm*Math.PI*2/Math.sqrt(2);
     public static final double distanceToShootCm = 50;
     public static final double tileSizeCm = 60.96;
+    public static final double timeToMoveTileAtMaxSpeed = tileSizeCm/mecanumVerticalHorizontalMaxVelocityCmPerMinute;
 }

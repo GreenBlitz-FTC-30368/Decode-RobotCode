@@ -1,12 +1,12 @@
-package org.firstinspires.ftc.teamcode.Robot.OpMode.auto;
+package org.firstinspires.ftc.teamcode.RobotTank.OpMode.auto;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.teamcode.Robot.Robot;
-import org.firstinspires.ftc.teamcode.Robot.RobotConstants;
+import org.firstinspires.ftc.teamcode.RobotTank.Robot;
+import org.firstinspires.ftc.teamcode.RobotTank.RobotConstants;
 
 @Autonomous(name = "far auto67")
 public class AutonomousFar extends LinearOpMode {
