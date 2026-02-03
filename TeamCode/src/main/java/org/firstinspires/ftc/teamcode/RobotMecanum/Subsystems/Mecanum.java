@@ -49,8 +49,8 @@ public class Mecanum {
     public Mecanum(HardwareMap hardwareMap){
         this.flMotor = hardwareMap.dcMotor.get("frontLeftWheel");
         this.frMotor = hardwareMap.dcMotor.get("frontRightWheel");
-        this.blMotor = hardwareMap.dcMotor.get("backLeftMotor");
-        this.brMotor = hardwareMap.dcMotor.get("backRightMotor");
+        this.blMotor = hardwareMap.dcMotor.get("backLeftWheel");
+        this.brMotor = hardwareMap.dcMotor.get("backRightWheel");
         frMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         brMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         flMotor.setDirection(DcMotorSimple.Direction.FORWARD);
