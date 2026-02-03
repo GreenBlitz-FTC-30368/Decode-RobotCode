@@ -1,17 +1,16 @@
 package org.firstinspires.ftc.teamcode.Robot.OpMode.auto;
 
-import com.acmerobotics.roadrunner.PoseVelocity2d;
-import com.acmerobotics.roadrunner.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.Robot.RobotConstants;
 import org.firstinspires.ftc.teamcode.Robot.RobotMecanum;
 
-@Autonomous(name = "close auto mecanum")
-public class AutonomousCloseMecanum extends LinearOpMode {
+@Autonomous(name = "far auto mecanum")
+public class AutonomousFarMecanum extends LinearOpMode {
     private RobotMecanum robot;
-    private final long moveTimeToShootPositionMS = (long) (RobotConstants.distanceToShootCm / RobotConstants.tankMaxVelocityCmPerMinute * 60000);
+    private final long timeToPositionBeforeTurn = 1500;
+    private final long timeToShootPosition = 3000;
 
     private void shootThreeArtifacts() {
         for (int i = 0; i < 3; i++) {
@@ -27,11 +26,11 @@ public class AutonomousCloseMecanum extends LinearOpMode {
         waitForStart();
         robot = new RobotMecanum(hardwareMap);
         robot.getMecanum().drive(0,-1,0);
-        sleep(moveTimeToShootPositionMS);
+        sleep(timeToPositionBeforeTurn);
         robot.getMecanum().stop();
-        robot.getFlywheel().shoot();
-        sleep(RobotConstants.wheelAccelerationTimeMS);
+        robot.getMecanum().drive(0,0,1);
+        robot.getMecanum().drive(0,-1,0);
+        sleep(timeToShootPosition);
         shootThreeArtifacts();
-        robot.getFlywheel().stop();
     }
 }
