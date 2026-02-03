@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.Robot.Subsystems;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Mecanum {
@@ -22,7 +21,9 @@ public class Mecanum {
         blMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
 
-    public void moveWithXYAnglepower(double x, double y, double anglePower){
+
+    public void drive(double x, double y, double anglePower){
+
         //*negative y means forward
         double fl = -y+x+anglePower;
         double fr = -y-x-anglePower;
@@ -41,8 +42,8 @@ public class Mecanum {
         brMotor.setPower(br);
     }
 
-    public void moveWithGamepad(Gamepad gamepad){
-        moveWithXYAnglepower(gamepad.left_stick_x, gamepad.left_stick_y, gamepad.right_stick_x);
+    public void drive(Gamepad gamepad){
+        drive(gamepad.left_stick_x, gamepad.left_stick_y, gamepad.right_stick_x);
     }
 
     public Mecanum(HardwareMap hardwareMap){
