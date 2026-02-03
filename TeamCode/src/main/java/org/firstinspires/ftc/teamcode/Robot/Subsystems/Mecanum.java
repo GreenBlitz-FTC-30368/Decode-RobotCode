@@ -3,14 +3,12 @@ package org.firstinspires.ftc.teamcode.Robot.Subsystems;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-import org.firstinspires.ftc.teamcode.Robot.MathUtilBlitz;
-
-public class Mechanum {
+public class Mecanum {
     private final DcMotor flMotor;
     private final DcMotor frMotor;
     private final DcMotor blMotor;
     private final DcMotor brMotor;
-    public Mechanum(DcMotor flMotor, DcMotor frMotor, DcMotor blMotor, DcMotor brMotor){
+    public Mecanum(DcMotor flMotor, DcMotor frMotor, DcMotor blMotor, DcMotor brMotor){
         this.flMotor = flMotor;
         this.frMotor = frMotor;
         this.blMotor = blMotor;
