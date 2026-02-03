@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Robot.Subsystems;
+package org.firstinspires.ftc.teamcode.RobotTank.Subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -12,7 +12,7 @@ public class Flywheel {
     }
 
     public void shoot() {
-        flywheel.setPower(0.68);
+        flywheel.setPower(0.6);
     }
 
     public void stop() {
