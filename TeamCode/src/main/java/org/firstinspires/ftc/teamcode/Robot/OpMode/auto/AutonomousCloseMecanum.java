@@ -26,7 +26,7 @@ public class AutonomousCloseMecanum extends LinearOpMode {
     public void runOpMode() {
         waitForStart();
         robot = new RobotMecanum(hardwareMap);
-        robot.getMecanum().drive(0,-1,0);
+        robot.getMecanum().drive(0,1,0);
         sleep(moveTimeToShootPositionMS);
         robot.getMecanum().stop();
         robot.getFlywheel().shoot();
