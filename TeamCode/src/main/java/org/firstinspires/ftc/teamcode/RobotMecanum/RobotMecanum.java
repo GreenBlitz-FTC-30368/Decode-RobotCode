@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode.RobotMecanum;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.RobotTank.Subsystems.Flywheel;
-import org.firstinspires.ftc.teamcode.RobotTank.Subsystems.Mecanum;
-import org.firstinspires.ftc.teamcode.RobotTank.Subsystems.Rail;
+import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Flywheel;
+import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Mecanum;
+import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Rail;
 
 public class RobotMecanum {
     private final Rail rail;
