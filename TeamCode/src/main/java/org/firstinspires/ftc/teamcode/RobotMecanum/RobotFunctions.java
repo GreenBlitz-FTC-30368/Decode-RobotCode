@@ -8,21 +8,23 @@ public class RobotFunctions{
         this.robot = robotMecanum;
     }
 
-    public void moveWithDiagonalsCm(double topLeft, double topRight) throws InterruptedException {
+    public void moveWithDiagonalsCm(double topLeft, double topRight){
         double normalFactor = Math.max(Math.abs(topLeft),Math.abs(topRight));
         double topLeftPower = topLeft/normalFactor;
         double topRightPower = topRight/normalFactor;
         double movementDuration = normalFactor/RobotConstants.mecanumDiagonalVelocityCmPerMinute;
         robot.getMecanum().driveWithDiagonalVelocities(topLeftPower,topRightPower);
-        Thread.sleep((int)(movementDuration*6000));
+        try {
+            Thread.sleep((int) (movementDuration * 6000));
+        } catch (InterruptedException e) {}
         robot.getMecanum().stop();
     }
 
-    public void moveWithXYCm(double x, double y) throws InterruptedException {
-        moveWithDiagonalsCm(-y-x,-y+x);
+    public void moveWithXYCm(double x, double y){
+        moveWithDiagonalsCm((-y-x)*Math.sqrt(2)/2,(-y+x)*Math.sqrt(2)/2);
     }
 
-    public void moveWithXYTiles(double x, double y) throws InterruptedException{
+    public void moveWithXYTiles(double x, double y){
         moveWithXYCm(x*RobotConstants.tileSizeCm,y*RobotConstants.tileSizeCm);
     }
 }

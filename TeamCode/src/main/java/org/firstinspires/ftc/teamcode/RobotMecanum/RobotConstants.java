@@ -10,7 +10,6 @@ public class RobotConstants {
     public static final double mecanumWheelRadiusCm = 5;
     public static final double mecanumDiagonalMaxVelocityCmPerMinute=RPM*mecanumWheelRadiusCm*Math.PI*2;
     public static final double mecanumVerticalHorizontalMaxVelocityCmPerMinute = mecanumDiagonalMaxVelocityCmPerMinute*Math.sqrt(2);
-    public static final double mecanumRotationalMaxVelocityDegreePerMinute=mecanumDiagonalMaxVelocityCmPerMinute*Math.PI/180;
     public static final double distanceToShootCm = 50;
     public static final double tileSizeCm = 60.96;
 }
