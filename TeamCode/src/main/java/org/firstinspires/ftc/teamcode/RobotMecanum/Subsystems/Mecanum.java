@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
@@ -20,7 +21,12 @@ public class Mecanum {
         flMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         blMotor.setDirection(DcMotorSimple.Direction.FORWARD);
     }
-
+    public void driveWithDiagonalVelocities(double topLeft, double topRight){
+        flMotor.setPower(topRight);
+        brMotor.setPower(topRight);
+        frMotor.setPower(topLeft);
+        blMotor.setPower(topLeft);
+    }
 
     public void drive(double x, double y, double anglePower){
 

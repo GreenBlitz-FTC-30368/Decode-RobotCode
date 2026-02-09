@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.RobotMecanum;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
 public class RobotConstants {
     public static final int wheelAccelerationTimeMS = 1000;
     public static final int timeToShootAnArtifactMS = 500;
