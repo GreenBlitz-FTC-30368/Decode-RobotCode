@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.RobotMecanum.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
+
 @Autonomous(name = "far auto mecanum")
 public class AutonomousFarMecanum extends LinearOpMode {
     private RobotMecanum robot;
