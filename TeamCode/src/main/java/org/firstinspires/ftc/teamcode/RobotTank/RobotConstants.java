@@ -6,6 +6,7 @@ public class RobotConstants {
     public static final int timeBetweenArtifactShootings = 1000;
     public static final int RPM = 117;
     public static final double mecanumWheelRadiusCm = 5;
+    public static final double mecanumDiagonalVelocityCmPerMinute=RPM*mecanumWheelRadiusCm*Math.PI;
     public static final double mecanumVerticalHorizontalVelocityCmPerMinute = RPM*mecanumWheelRadiusCm*Math.PI*2/Math.sqrt(2);
 
     public static final double tankWheelRadiusCm = 9.6;
