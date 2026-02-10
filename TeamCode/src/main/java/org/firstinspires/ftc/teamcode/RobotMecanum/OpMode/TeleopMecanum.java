@@ -21,7 +21,8 @@ public class TeleopMecanum extends OpMode {
     @Override
     public void loop() {
         joystickBindings.mainJoystickButtons(robot);
-        telemetry.addData("RailMode", robot.getRail().getMode());
+        //telemetry.addData("RailMode", robot.getRail().getMode());
+        telemetry.addData("yaw",robot.getYaw());
     }
 
 }
