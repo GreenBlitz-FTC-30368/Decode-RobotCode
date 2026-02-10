@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.RobotMecanum;
 
+import org.firstinspires.ftc.teamcode.MathUtilBlitz;
 import org.firstinspires.ftc.teamcode.RobotTank.RobotConstants;
 
 public class RobotFunctions{
     private final RobotMecanum robot;
+    private final double rotationPidPowerTo360DegRatio = 1;
     public RobotFunctions(RobotMecanum robotMecanum){
         this.robot = robotMecanum;
     }
@@ -26,5 +28,24 @@ public class RobotFunctions{
 
     public void moveWithXYTiles(double x, double y){
         moveWithXYCm(x*RobotConstants.tileSizeCm,y*RobotConstants.tileSizeCm);
+    }
+
+    public void rotateToAngle(double angle,double tolerance){
+        double currentAngle = robot.getYaw();
+        while (!MathUtilBlitz.isNear(angle,currentAngle,tolerance)){
+            robot.getMecanum().drive(0,0,(angle-currentAngle)*rotationPidPowerTo360DegRatio/360);
+        }
+    }
+
+    public void rotateToAngle(double angle){
+        rotateToAngle(angle,5);
+    }
+
+    public void rotate(double degrees,double tolerance){
+        rotateToAngle(robot.getYaw()+degrees,tolerance);
+    }
+
+    public void rotate(double degrees){
+        rotateToAngle(robot.getYaw()+degrees);
     }
 }
