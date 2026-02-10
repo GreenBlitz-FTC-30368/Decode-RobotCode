@@ -38,7 +38,7 @@ public class RobotFunctions{
     }
 
     public void rotateToAngle(double angle){
-        rotateToAngle(angle,5);
+        rotateToAngle(angle,2);
     }
 
     public void rotate(double degrees,double tolerance){
