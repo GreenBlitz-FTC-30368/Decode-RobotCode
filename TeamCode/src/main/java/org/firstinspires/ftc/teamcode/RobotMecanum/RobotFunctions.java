@@ -32,8 +32,10 @@ public class RobotFunctions{
 
     public void rotateToAngle(double angle,double tolerance){
         double currentAngle = robot.getYaw();
-        while (!MathUtilBlitz.isNear(angle,currentAngle,tolerance)){
-            robot.getMecanum().drive(0,0,(angle-currentAngle)*rotationPidPowerTo360DegRatio/360);
+        double delta = MathUtilBlitz.angleDifference(currentAngle,angle);
+        while (Math.abs(delta)>tolerance){
+            robot.getMecanum().drive(0,0,delta*rotationPidPowerTo360DegRatio/360);
+            delta = MathUtilBlitz.angleDifference(currentAngle,angle);
         }
     }
 

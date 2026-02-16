@@ -9,7 +9,15 @@ public class RobotConstants {
     public static final int RPM = 312;
     public static final double mecanumWheelRadiusCm = 5;
     public static final double mecanumDiagonalMaxVelocityCmPerMinute=RPM*mecanumWheelRadiusCm*Math.PI*2;
-    public static final double mecanumVerticalHorizontalMaxVelocityCmPerMinute = mecanumDiagonalMaxVelocityCmPerMinute*Math.sqrt(2);
     public static final double distanceToShootCm = 50;
     public static final double tileSizeCm = 60.96;
+
+    public enum AllianceColor{
+        BLUE(-1),
+        RED(1);
+        public final int autonomousFarShootsModifier;
+        private AllianceColor(int autonomousFarShootsModifier){
+            this.autonomousFarShootsModifier=autonomousFarShootsModifier;
+        }
+    }
 }
