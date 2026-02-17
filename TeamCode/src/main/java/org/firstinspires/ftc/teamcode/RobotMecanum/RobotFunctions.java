@@ -35,12 +35,13 @@ public class RobotFunctions{
         double delta = MathUtilBlitz.angleDifference(currentAngle,angle);
         while (Math.abs(delta)>tolerance){
             robot.getMecanum().drive(0,0,delta*rotationPidPowerTo360DegRatio/360);
+            currentAngle= robot.getYaw();
             delta = MathUtilBlitz.angleDifference(currentAngle,angle);
         }
     }
 
     public void rotateToAngle(double angle){
-        rotateToAngle(angle,2);
+        rotateToAngle(angle,10);
     }
 
     public void rotate(double degrees,double tolerance){
