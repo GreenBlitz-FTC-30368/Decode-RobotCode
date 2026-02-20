@@ -8,11 +8,12 @@ import org.firstinspires.ftc.teamcode.RobotTank.RobotConstants;
 
 public class RobotFunctions{
     private final RobotMecanum robot;
+
+    private Telemetry telemetry;
     private final double rotationPidPowerTo360DegRatio = 1;
-    public RobotFunctions(RobotMecanum robotMecanum){
+    public RobotFunctions(RobotMecanum robotMecanum, Telemetry telemetry){
         this.robot = robotMecanum;
     }
-
     public void moveWithDiagonalsCm(double topLeft, double topRight){
         double normalFactor = Math.max(Math.abs(topLeft),Math.abs(topRight));
         double topLeftPower = topLeft/normalFactor;
@@ -33,7 +34,7 @@ public class RobotFunctions{
         moveWithXYCm(x*RobotConstants.tileSizeCm,y*RobotConstants.tileSizeCm);
     }
 
-    public void rotateToAngle(double angle,double tolerance, Telemetry telemetry){
+    public void rotateToAngle(double angle,double tolerance){
         double currentAngle = robot.getYaw();
         double delta = MathUtilBlitz.angleDifference(currentAngle,angle);
         while (Math.abs(delta)>tolerance){
@@ -45,8 +46,8 @@ public class RobotFunctions{
         }
     }
 
-    public void rotateToAngle(double angle, Telemetry telemetry){
-        rotateToAngle(angle,1000, telemetry); //Need to lower
+    public void rotateToAngle(double angle){
+        rotateToAngle(angle,1000); //Need to lower
     }
 
 //    public void rotate(double degrees,double tolerance){

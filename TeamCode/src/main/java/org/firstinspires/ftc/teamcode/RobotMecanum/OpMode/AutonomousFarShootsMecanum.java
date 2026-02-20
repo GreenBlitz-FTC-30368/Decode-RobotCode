@@ -17,9 +17,9 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
     public void runOpMode() {
         waitForStart();
         robot = new RobotMecanum(hardwareMap);
-        robotFunctions = new RobotFunctions(robot);
+        robotFunctions = new RobotFunctions(robot,telemetry);
         robotFunctions.moveWithXYTiles(0.5*getAllianceColor().autonomousFarShootsModifier,-3.5);
-        robotFunctions.rotateToAngle(45*getAllianceColor().autonomousFarShootsModifier, telemetry);
+        robotFunctions.rotateToAngle(45*getAllianceColor().autonomousFarShootsModifier);
     }
 
 
