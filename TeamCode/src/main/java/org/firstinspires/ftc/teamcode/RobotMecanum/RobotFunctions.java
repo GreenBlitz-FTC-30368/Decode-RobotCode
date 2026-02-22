@@ -1,11 +1,24 @@
 package org.firstinspires.ftc.teamcode.RobotMecanum;
 
 //import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.MathUtilBlitz;
-import org.firstinspires.ftc.teamcode.RobotMecanum.RobotConstants;
 
 public class RobotFunctions{
     private final RobotMecanum robot;
+
+    private Telemetry telemetry = null;
+
+    public void setTelemetry(Telemetry telemetry){
+        this.telemetry=telemetry;
+    }
+
+    public void telemetryAddData(String caption, Object object){
+        if (telemetry!=null){
+            telemetry.addData(caption, object);
+        }
+    }
+
     private final double rotationPidPowerTo360DegRatio = 3.67;
     public RobotFunctions(RobotMecanum robotMecanum){
         this.robot = robotMecanum;
@@ -35,9 +48,10 @@ public class RobotFunctions{
         } else {
             factor=(absTopLeft-RobotConstants.diagonalDriftAtMaxVelocityCm)/absTopLeft;
         }
-        double updatedTopLeft=absTopRight*Math.signum(topLeft);
-        double updatedTopRight=absTopLeft*Math.signum(topRight);
-        moveWithDiagonalsCm(updatedTopLeft,updatedTopRight);
+        moveWithDiagonalsCm(factor*topLeft,factor*topRight);
+        try {
+            Thread.sleep((long)(RobotConstants.diagonalDriftAtMaxVelocityCm/RobotConstants.mecanumDiagonalMaxVelocityCmPerMinute*60000)+500);
+        } catch (Exception _){}
     }
 
     public void moveWithXYCm(double x, double y){
@@ -59,10 +73,11 @@ public class RobotFunctions{
         double currentAngle = robot.getYaw();
         double delta = MathUtilBlitz.angleDifference(currentAngle,angle);
         while (Math.abs(delta)>tolerance){
-            robot.getMecanum().drive(0,0,delta*rotationPidPowerTo360DegRatio/360);
+            robot.getMecanum().drive(0,0,-1*delta*rotationPidPowerTo360DegRatio/360);
             currentAngle = robot.getYaw();
             delta = MathUtilBlitz.angleDifference(currentAngle,angle);
         }
+        robot.getMecanum().stop();
     }
 
     public void rotateToAngle(double angle){

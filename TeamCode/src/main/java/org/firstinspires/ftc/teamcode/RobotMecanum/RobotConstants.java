@@ -11,7 +11,7 @@ public class RobotConstants {
     public static final double mecanumDiagonalMaxVelocityCmPerMinute=/*RPM*mecanumWheelRadiusCm*Math.PI*2*/ /*108*60*/ 141.439*60; //on school floor, need to configure on arena
     public static final double distanceToShootCm = 50;
     public static final double tileSizeCm = 60.96;
-    public static final double diagonalDriftAtMaxVelocityCm = 46; //on school floor, need to configure on arena
+    public static final double diagonalDriftAtMaxVelocityCm = 46-5; //on school floor, need to configure on arena
 
     public enum AllianceColor{
         BLUE(1),
