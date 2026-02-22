@@ -23,8 +23,32 @@ public class RobotFunctions{
         robot.getMecanum().stop();
     }
 
+    public void moveWithDiagonalsCmAccountForDrift(double topLeft, double topRight){
+        double absTopLeft = Math.abs(topLeft);
+        double absTopRight = Math.abs(topRight);
+        double factor = 1;
+        if (topLeft==0&&topRight==0){
+            return;
+        }
+        if (absTopRight>absTopLeft){
+            factor=(absTopRight-RobotConstants.diagonalDriftAtMaxVelocityCm)/absTopRight;
+        } else {
+            factor=(absTopLeft-RobotConstants.diagonalDriftAtMaxVelocityCm)/absTopLeft;
+        }
+        double updatedTopLeft=absTopRight*Math.signum(topLeft);
+        double updatedTopRight=absTopLeft*Math.signum(topRight);
+        moveWithDiagonalsCm(updatedTopLeft,updatedTopRight);
+    }
+
     public void moveWithXYCm(double x, double y){
-        moveWithDiagonalsCm((-y-x)*Math.sqrt(2)/2,(-y+x)*Math.sqrt(2)/2);
+        moveWithXYCm(x,y,false);
+    }
+    public void moveWithXYCm(double x, double y, boolean accountForDrift){
+        if (accountForDrift) {
+            moveWithDiagonalsCmAccountForDrift((-y-x)*Math.sqrt(2)/2,(-y+x)*Math.sqrt(2)/2);
+        } else {
+            moveWithDiagonalsCm((-y - x) * Math.sqrt(2) / 2, (-y + x) * Math.sqrt(2) / 2);
+        }
     }
 
     public void moveWithXYTiles(double x, double y){

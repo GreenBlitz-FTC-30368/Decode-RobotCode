@@ -22,7 +22,8 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
         //robotFunctions.rotateToAngle(robot.getYaw()+45, 10, telemetry);
 
 
-        double xMovement = -1.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
+        robotFunctions.moveWithDiagonalsCm(100,0); //46
+        /*double xMovement = -1.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         double yMovement = -4.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         telemetry.setAutoClear(false);
         telemetry.addData("xMovement",xMovement);
