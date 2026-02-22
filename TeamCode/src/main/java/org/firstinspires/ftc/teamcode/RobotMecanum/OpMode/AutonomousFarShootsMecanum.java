@@ -20,16 +20,22 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
         robotFunctions = new RobotFunctions(robot);
         //robotFunctions.moveWithXYTiles(0.5*getAllianceColor().autonomousFarShootsModifier,-3.5);
         //robotFunctions.rotateToAngle(robot.getYaw()+45, 10, telemetry);
+
+        /*
         double xMovement = -1.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         double yMovement = -4.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         robotFunctions.moveWithXYTiles(xMovement*getAllianceColor().autonomousFarShootsModifier,yMovement);
-
         robotFunctions.rotate(45);
 
         robot.getFlywheel().shoot();
         sleep(RobotConstants.wheelAccelerationTimeMS);
         shootThreeArtifacts();
         robot.getFlywheel().stop();
+         */
+
+        robot.getMecanum().driveWithDiagonalVelocities(1,0);
+        sleep(1000);
+        robot.getMecanum().stop();
     }
     private void shootThreeArtifacts() {
         for (int i = 0; i < 3; i++) {

@@ -8,7 +8,7 @@ public class RobotConstants {
     public static final int timeBetweenArtifactShootings = 1000;
     public static final int RPM = 312;
     public static final double mecanumWheelRadiusCm = 5;
-    public static final double mecanumDiagonalMaxVelocityCmPerMinute=/*RPM*mecanumWheelRadiusCm*Math.PI*2*/108*60;
+    public static final double mecanumDiagonalMaxVelocityCmPerMinute=/*RPM*mecanumWheelRadiusCm*Math.PI*2*/ /*108*60*/ 1298;
     public static final double distanceToShootCm = 50;
     public static final double tileSizeCm = 60.96;
 

@@ -1,10 +1,8 @@
 package org.firstinspires.ftc.teamcode.RobotMecanum;
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-
-import org.firstinspires.ftc.robotcore.external.Telemetry;
+//import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.MathUtilBlitz;
-import org.firstinspires.ftc.teamcode.RobotTank.RobotConstants;
+import org.firstinspires.ftc.teamcode.RobotMecanum.RobotConstants;
 
 public class RobotFunctions{
     private final RobotMecanum robot;
@@ -17,7 +15,7 @@ public class RobotFunctions{
         double normalFactor = Math.max(Math.abs(topLeft),Math.abs(topRight));
         double topLeftPower = topLeft/normalFactor;
         double topRightPower = topRight/normalFactor;
-        double movementDuration = normalFactor/RobotConstants.mecanumDiagonalVelocityCmPerMinute;
+        double movementDuration = normalFactor/RobotConstants.mecanumDiagonalMaxVelocityCmPerMinute;
         robot.getMecanum().driveWithDiagonalVelocities(topLeftPower,topRightPower);
         try {
             Thread.sleep((int) (movementDuration * 6000));
