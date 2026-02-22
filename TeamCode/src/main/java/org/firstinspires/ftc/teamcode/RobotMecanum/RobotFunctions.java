@@ -18,7 +18,7 @@ public class RobotFunctions{
         double movementDuration = normalFactor/RobotConstants.mecanumDiagonalMaxVelocityCmPerMinute;
         robot.getMecanum().driveWithDiagonalVelocities(topLeftPower,topRightPower);
         try {
-            Thread.sleep((int) (movementDuration * 6000));
+            Thread.sleep((int) (movementDuration * 60000));
         } catch (InterruptedException e) {}
         robot.getMecanum().stop();
     }
