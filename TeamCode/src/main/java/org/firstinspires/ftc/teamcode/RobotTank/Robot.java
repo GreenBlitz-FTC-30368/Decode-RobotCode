@@ -1,12 +1,10 @@
-package org.firstinspires.ftc.teamcode.Robot;
+package org.firstinspires.ftc.teamcode.RobotTank;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import com.qualcomm.robotcore.hardware.HardwareMap;
-
-import org.firstinspires.ftc.teamcode.Robot.Subsystems.Flywheel;
-import org.firstinspires.ftc.teamcode.Robot.Subsystems.Rail;
-import org.firstinspires.ftc.teamcode.Robot.Subsystems.Tank;
+import org.firstinspires.ftc.teamcode.RobotTank.Subsystems.Flywheel;
+import org.firstinspires.ftc.teamcode.RobotTank.Subsystems.Rail;
+import org.firstinspires.ftc.teamcode.RobotTank.Subsystems.Tank;
 
 public class Robot {
     private final Rail rail;
@@ -18,10 +16,10 @@ public class Robot {
                 hardwareMap.crservo.get("rightRail"),
                 hardwareMap.crservo.get("leftRail")
         );
-        flywheel = new Flywheel(
+        this.flywheel = new Flywheel(
                 hardwareMap.dcMotor.get("flywheelMotor")
         );
-        tank = new Tank(
+        this.tank = new Tank(
                 hardwareMap.dcMotor.get("rightTank"),
                 hardwareMap.dcMotor.get("leftTank")
         );

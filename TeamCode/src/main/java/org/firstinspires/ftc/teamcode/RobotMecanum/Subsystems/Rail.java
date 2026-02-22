@@ -1,8 +1,5 @@
-package org.firstinspires.ftc.teamcode.Robot.Subsystems;
+package org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems;
 
-import android.app.Notification;
-
-import com.acmerobotics.roadrunner.Action;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
@@ -25,7 +22,7 @@ public class Rail {
     }
 
     public void go() {
-        servoRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        servoRight.setDirection(DcMotorSimple.Direction.REVERSE);
         servoLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         servoLeft.setPower(0.6);
         servoRight.setPower(0.6);
