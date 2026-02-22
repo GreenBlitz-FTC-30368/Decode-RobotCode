@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.RobotTank.RobotConstants;
 
 public class RobotFunctions{
     private final RobotMecanum robot;
-    private final double rotationPidPowerTo360DegRatio = 1;
+    private final double rotationPidPowerTo360DegRatio = 3.67;
     public RobotFunctions(RobotMecanum robotMecanum){
         this.robot = robotMecanum;
     }
@@ -33,27 +33,25 @@ public class RobotFunctions{
         moveWithXYCm(x*RobotConstants.tileSizeCm,y*RobotConstants.tileSizeCm);
     }
 
-    public void rotateToAngle(double angle,double tolerance, Telemetry telemetry){
+    public void rotateToAngle(double angle,double tolerance){
         double currentAngle = robot.getYaw();
         double delta = MathUtilBlitz.angleDifference(currentAngle,angle);
         while (Math.abs(delta)>tolerance){
-            robot.getMecanum().drive(0,0,delta*rotationPidPowerTo360DegRatio/360);
+            robot.getMecanum().drive(0,0,-1*delta*rotationPidPowerTo360DegRatio/360);
             currentAngle = robot.getYaw();
-            telemetry.addData("Yaw: ", currentAngle);
-            telemetry.update();
             delta = MathUtilBlitz.angleDifference(currentAngle,angle);
         }
     }
 
-    public void rotateToAngle(double angle, Telemetry telemetry){
-        rotateToAngle(angle,1000, telemetry); //Need to lower
+    public void rotateToAngle(double angle){
+        rotateToAngle(angle,10);
     }
 
-//    public void rotate(double degrees,double tolerance){
-//        rotateToAngle(robot.getYaw()+degrees,tolerance);
-//    }
-//
-//    public void rotate(double degrees){
-//        rotateToAngle(robot.getYaw()+degrees);
-//    }
+    public void rotate(double degrees,double tolerance){
+        rotateToAngle(robot.getYaw()+degrees,tolerance);
+    }
+
+    public void rotate(double degrees){
+        rotateToAngle(robot.getYaw()+degrees);
+    }
 }
