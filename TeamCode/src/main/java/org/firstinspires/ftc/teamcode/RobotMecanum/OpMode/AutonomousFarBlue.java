@@ -6,7 +6,7 @@ import org.firstinspires.ftc.teamcode.RobotMecanum.RobotConstants;
 @Autonomous(name="mecanum auto far blue",group="far auto shoots")
 public class AutonomousFarBlue extends AutonomousFarShootsMecanum{
     @Override
-    RobotConstants.AllianceColor getAllianceColor() {
-        return RobotConstants.AllianceColor.BLUE;
+    int getModifier(){
+        return 1;
     }
 }

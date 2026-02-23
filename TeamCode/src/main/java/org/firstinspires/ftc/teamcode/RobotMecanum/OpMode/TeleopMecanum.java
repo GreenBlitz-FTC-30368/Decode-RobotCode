@@ -15,7 +15,7 @@ public class TeleopMecanum extends OpMode {
     @Override
     public void init() {
         robot = new RobotMecanum(hardwareMap);
-        joystickBindings = new JoystickBindings(gamepad1);
+        joystickBindings = new JoystickBindings(gamepad1,telemetry);
     }
 
     @Override

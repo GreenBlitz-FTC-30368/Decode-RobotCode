@@ -3,21 +3,22 @@ package org.firstinspires.ftc.teamcode.RobotMecanum;
 //import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.MathUtilBlitz;
+import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Flywheel;
 
 public class RobotFunctions{
     private final RobotMecanum robot;
 
-    private Telemetry telemetry = null;
-
-    public void setTelemetry(Telemetry telemetry){
-        this.telemetry=telemetry;
-    }
-
-    public void telemetryAddData(String caption, Object object){
-        if (telemetry!=null){
-            telemetry.addData(caption, object);
-        }
-    }
+//    private Telemetry telemetry = null;
+//
+//    public void setTelemetry(Telemetry telemetry){
+//        this.telemetry=telemetry;
+//    }
+//
+//    public void telemetryAddData(String caption, Object object){
+//        if (telemetry!=null){
+//            telemetry.addData(caption, object);
+//        }
+//    }
 
     private final double rotationPidPowerTo360DegRatio = 3.67;
     public RobotFunctions(RobotMecanum robotMecanum){

@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
 //@Autonomous(name = "far auto shoots mecanum 68")
 public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
 
-    abstract int getmodifier();
+    abstract int getModifier();
     private RobotMecanum robot;
     private RobotFunctions robotFunctions;
     @Override
@@ -22,8 +22,8 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
         double xMovement = -1.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         double yMovement = -4.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         double startingYaw = robot.getYaw();
-        robotFunctions.moveWithXYCm(xMovement*getmodifier(),yMovement,true);
-        robotFunctions.rotateToAngle(startingYaw+45*getmodifier());
+        robotFunctions.moveWithXYCm(xMovement*getModifier(),yMovement,true);
+        robotFunctions.rotateToAngle(startingYaw+45*getModifier());
 
         robot.getFlywheel().shoot();
         sleep(RobotConstants.wheelAccelerationTimeMS);
