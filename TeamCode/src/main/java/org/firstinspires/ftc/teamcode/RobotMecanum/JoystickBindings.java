@@ -20,7 +20,7 @@ public class JoystickBindings {
             robot.getRail().stop();
         }
 
-        if (gamepad1.left_trigger > 0.1) {
+        if (gamepad1.left_trigger > 0.5) {
             robot.getFlywheel().shoot();
         }
 

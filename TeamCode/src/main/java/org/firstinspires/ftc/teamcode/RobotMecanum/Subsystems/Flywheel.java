@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 public class Flywheel {
     private final DcMotor flywheel;
+    private static final double shootingPower= 7.67;
 
     public Flywheel(DcMotor flywheel) {
         flywheel.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -12,7 +13,7 @@ public class Flywheel {
     }
 
     public void shoot() {
-        flywheel.setPower(0.6);
+        flywheel.setPower(shootingPower);
     }
 
     public void stop() {

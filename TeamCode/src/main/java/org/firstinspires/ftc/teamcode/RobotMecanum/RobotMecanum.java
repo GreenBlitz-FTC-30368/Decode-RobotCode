@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.RobotMecanum;
 
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
@@ -21,7 +22,7 @@ public class RobotMecanum {
                 hardwareMap.crservo.get("leftRail")
         );
         this.flywheel = new Flywheel(
-                hardwareMap.dcMotor.get("flywheelMotor")
+                hardwareMap.get(DcMotorEx.class,"flywheelMotor")
         );
         this.mecanum = new Mecanum(hardwareMap); //TODO: name calibration
         this.imu = hardwareMap.get(IMU.class,"imu");

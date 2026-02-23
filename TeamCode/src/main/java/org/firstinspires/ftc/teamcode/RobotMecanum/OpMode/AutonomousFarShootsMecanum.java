@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
 //@Autonomous(name = "far auto shoots mecanum 68")
 public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
 
-    abstract RobotConstants.AllianceColor getAllianceColor();
+    abstract int getmodifier();
     private RobotMecanum robot;
     private RobotFunctions robotFunctions;
     @Override
@@ -18,36 +18,22 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
         waitForStart();
         robot = new RobotMecanum(hardwareMap);
         robotFunctions = new RobotFunctions(robot);
-        telemetry.setAutoClear(false);
-        robotFunctions.setTelemetry(telemetry);
-        telemetry.addData("YAWS",robot.getYaw());
-        telemetry.update();
-        //robotFunctions.moveWithXYTiles(0.5*getAllianceColor().autonomousFarShootsModifier,-3.5);
-        //robotFunctions.rotateToAngle(robot.getYaw()+45, 10, telemetry);
 
-
-        //robotFunctions.moveWithXYCm(0,-155,true);
         double xMovement = -1.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         double yMovement = -4.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
-        telemetry.setAutoClear(false);
-        telemetry.addData("xMovement",xMovement);
-        telemetry.addData("yMovement",yMovement);
-        telemetry.update();
-        telemetry.addData("YAWS2",robot.getYaw());
-        telemetry.update();
         double startingYaw = robot.getYaw();
-        robotFunctions.moveWithXYCm(xMovement*getAllianceColor().autonomousFarShootsModifier,yMovement,true);
-        robotFunctions.rotateToAngle(startingYaw+45*getAllianceColor().autonomousFarShootsModifier);
+        robotFunctions.moveWithXYCm(xMovement*getmodifier(),yMovement,true);
+        robotFunctions.rotateToAngle(startingYaw+45*getmodifier());
 
         robot.getFlywheel().shoot();
         sleep(RobotConstants.wheelAccelerationTimeMS);
-        shootThreeArtifacts();
+        shootArtifacts(3);
         robot.getFlywheel().stop();/**/
 
 
     }
-    private void shootThreeArtifacts() {
-        for (int i = 0; i < 3; i++) {
+    private void shootArtifacts(int n) {
+        for (int i = 0; i < n; i++) {
             robot.getRail().go();
             sleep(RobotConstants.timeToShootAnArtifactMS);
             robot.getRail().stop();

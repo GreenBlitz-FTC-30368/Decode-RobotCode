@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 public class Rail {
     private final CRServo servoRight;
     private final CRServo servoLeft;
-
+    private static final double speed = 0.767;
     private String mode;
 
     public Rail(CRServo servoRight, CRServo servoLeft) {
@@ -24,8 +24,8 @@ public class Rail {
     public void go() {
         servoRight.setDirection(DcMotorSimple.Direction.REVERSE);
         servoLeft.setDirection(DcMotorSimple.Direction.FORWARD);
-        servoLeft.setPower(0.6);
-        servoRight.setPower(0.6);
+        servoLeft.setPower(speed);
+        servoRight.setPower(speed);
         mode = "go";
     }
 

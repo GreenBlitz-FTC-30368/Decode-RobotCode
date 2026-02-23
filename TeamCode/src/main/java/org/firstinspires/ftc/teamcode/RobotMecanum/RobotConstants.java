@@ -13,12 +13,4 @@ public class RobotConstants {
     public static final double tileSizeCm = 60.96;
     public static final double diagonalDriftAtMaxVelocityCm = 46-5; //on school floor, need to configure on arena
 
-    public enum AllianceColor{
-        BLUE(1),
-        RED(-1);
-        public final int autonomousFarShootsModifier;
-        private AllianceColor(int autonomousFarShootsModifier){
-            this.autonomousFarShootsModifier=autonomousFarShootsModifier;
-        }
-    }
 }

@@ -80,8 +80,9 @@ public class RobotFunctions{
         robot.getMecanum().stop();
     }
 
+    private final static double rotateToAngleDefaultTolerance=10;
     public void rotateToAngle(double angle){
-        rotateToAngle(angle,10);
+        rotateToAngle(angle,rotateToAngleDefaultTolerance);
     }
 
     public void rotate(double degrees,double tolerance){
