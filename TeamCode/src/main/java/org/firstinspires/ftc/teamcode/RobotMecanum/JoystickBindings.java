@@ -3,15 +3,14 @@ package org.firstinspires.ftc.teamcode.RobotMecanum;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Flywheel;
+import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Mecanum;
 import org.firstinspires.ftc.teamcode.RobotTank.Robot;
 
 public class JoystickBindings {
     public final Gamepad gamepad1;
-    private final Telemetry telemetry;
-
-    public JoystickBindings(Gamepad gamepad1, Telemetry telemetry) {
+    public JoystickBindings(Gamepad gamepad1) {
         this.gamepad1 = gamepad1;
-        this.telemetry = telemetry;
     }
 
     public void mainJoystickButtons(RobotMecanum robot) {
@@ -25,12 +24,15 @@ public class JoystickBindings {
 
         if (gamepad1.left_trigger > 0.5) {
             robot.getFlywheel().shoot();
-            robot.getFlywheel().addDataWhenFlywheelStart(telemetry);
+        } else if (gamepad1.x) {
+            robot.getRail().rewind();
+        } else {
+            robot.getRail().stop();
         }
 
-        if (gamepad1.left_bumper)
+        if (gamepad1.left_bumper) {
             robot.getFlywheel().stop();
-
+        }
         if (gamepad1.back) {
             robot.getFlywheel().stop();
         }
@@ -39,7 +41,16 @@ public class JoystickBindings {
             robot.getRail().stop();
             robot.getMecanum().stop();
         }
-
+        if (gamepad1.y) {
+            robot.getFlywheel().powerModifier = Flywheel.slowModeShootingModifier;
+        } else {
+            robot.getFlywheel().powerModifier = 1;
+        }
+//        if (gamepad1.b) {
+//            robot.getMecanum().velocityModifier = Mecanum.slowModeVelocityModifier;
+//        } else {
+//            robot.getMecanum().velocityModifier = 1;
+//        }
     }
 
 }

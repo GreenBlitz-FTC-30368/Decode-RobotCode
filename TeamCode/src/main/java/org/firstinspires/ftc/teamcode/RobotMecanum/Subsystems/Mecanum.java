@@ -7,6 +7,9 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Mecanum {
+
+    public double velocityModifier = 1;
+    public static final double slowModeVelocityModifier = 0.5;
     private final DcMotor flMotor;
     private final DcMotor frMotor;
     private final DcMotor blMotor;
@@ -28,6 +31,12 @@ public class Mecanum {
         blMotor.setPower(topLeft);
     }
 
+    public void tester(){
+        flMotor.setPower(1);
+        brMotor.setPower(1);
+        frMotor.setPower(0);
+        blMotor.setPower(0);
+    }
     public void drive(double x, double y, double anglePower){
 
         //*negative y means forward
@@ -42,11 +51,12 @@ public class Mecanum {
             bl/=maxPower;
             br/=maxPower;
         }
-        flMotor.setPower(fl);
-        frMotor.setPower(fr);
-        blMotor.setPower(bl);
-        brMotor.setPower(br);
+        flMotor.setPower(fl*velocityModifier);
+        frMotor.setPower(fr*velocityModifier);
+        blMotor.setPower(bl*velocityModifier);
+        brMotor.setPower(br*velocityModifier);
     }
+
 
     public void drive(Gamepad gamepad){
         drive(gamepad.left_stick_x, gamepad.left_stick_y, gamepad.right_stick_x);

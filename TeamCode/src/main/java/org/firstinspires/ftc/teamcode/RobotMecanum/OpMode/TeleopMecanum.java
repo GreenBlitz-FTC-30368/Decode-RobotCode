@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.RobotMecanum.JoystickBindings;
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
+import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Flywheel;
 
 @TeleOp(name="teleopMecanum")
 public class TeleopMecanum extends OpMode {
@@ -15,7 +16,7 @@ public class TeleopMecanum extends OpMode {
     @Override
     public void init() {
         robot = new RobotMecanum(hardwareMap);
-        joystickBindings = new JoystickBindings(gamepad1,telemetry);
+        joystickBindings = new JoystickBindings(gamepad1);
     }
 
     @Override
@@ -23,6 +24,9 @@ public class TeleopMecanum extends OpMode {
         joystickBindings.mainJoystickButtons(robot);
         //telemetry.addData("RailMode", robot.getRail().getMode());
         telemetry.addData("yaw",robot.getYaw());
+        telemetry.addData("expected flywheel speed", Flywheel.expectedVelocity);
+        telemetry.addData("current velocity", robot.getFlywheel().getVelocity());
+        telemetry.update();
     }
 
 }

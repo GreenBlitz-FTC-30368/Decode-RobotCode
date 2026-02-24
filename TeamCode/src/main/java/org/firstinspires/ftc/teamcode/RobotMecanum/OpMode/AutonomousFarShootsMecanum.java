@@ -22,7 +22,7 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
         double xMovement = -1.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         double yMovement = -4.5*RobotConstants.tileSizeCm+RobotConstants.distanceToShootCm/Math.sqrt(2);
         double startingYaw = robot.getYaw();
-        robotFunctions.moveWithXYCm(xMovement*getModifier(),yMovement,true);
+        robotFunctions.moveWithXYCm(xMovement*getModifier(),yMovement);
         robotFunctions.rotateToAngle(startingYaw+45*getModifier());
 
         robot.getFlywheel().shoot();

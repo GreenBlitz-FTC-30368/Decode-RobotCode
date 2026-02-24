@@ -12,6 +12,8 @@ public class Rail {
     public Rail(CRServo servoRight, CRServo servoLeft) {
         this.servoLeft = servoLeft;
         this.servoRight = servoRight;
+        servoRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        servoLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         mode = "none";
     }
 
@@ -21,9 +23,13 @@ public class Rail {
         mode = "stop";
     }
 
+    public void rewind() {
+        servoLeft.setPower(-1*speed);
+        servoRight.setPower(-1*speed);
+        mode = "reverse";
+    }
+
     public void go() {
-        servoRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        servoLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         servoLeft.setPower(speed);
         servoRight.setPower(speed);
         mode = "go";
