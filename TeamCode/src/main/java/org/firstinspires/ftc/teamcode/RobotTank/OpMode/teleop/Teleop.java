@@ -1,11 +1,12 @@
-package org.firstinspires.ftc.teamcode.Robot.OpMode;
+package org.firstinspires.ftc.teamcode.RobotTank.OpMode.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Robot.JoystickBindings;
-import org.firstinspires.ftc.teamcode.Robot.Robot;
-@TeleOp(name="teleop1")
+import org.firstinspires.ftc.teamcode.RobotTank.JoystickBindings;
+import org.firstinspires.ftc.teamcode.RobotTank.Robot;
+
+@TeleOp(name = "teleop1")
 public class Teleop extends OpMode {
 
     private Robot robot;
