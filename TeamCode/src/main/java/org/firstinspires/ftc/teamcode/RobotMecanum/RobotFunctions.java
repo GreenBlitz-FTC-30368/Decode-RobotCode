@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.RobotMecanum;
 
-//import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.MathUtilBlitz;
 import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Flywheel;
@@ -11,7 +10,7 @@ public class RobotFunctions{
 //    private Telemetry telemetry = null;
 //
 //    public void setTelemetry(Telemetry telemetry){
-//        this.telemetry=telemetry;
+//        this.telemetry=telemetry;sleep
 //    }
 //
 //    public void telemetryAddData(String caption, Object object){
