@@ -2,13 +2,11 @@ package org.firstinspires.ftc.teamcode.RobotMecanum.OpMode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.IMU;
-
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotConstants;
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotFunctions;
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
 
-@Autonomous(name = "close auto mecanum")
+@Autonomous(name = "closeAutoMecanum")
 public class AutonomousCloseMecanum extends LinearOpMode {
     private RobotMecanum robot;
     private RobotFunctions functions;

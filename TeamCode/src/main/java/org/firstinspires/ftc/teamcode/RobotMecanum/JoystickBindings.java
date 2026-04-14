@@ -1,12 +1,10 @@
 package org.firstinspires.ftc.teamcode.RobotMecanum;
 
-import com.qualcomm.robotcore.hardware.Gamepad;
+import static java.lang.Thread.sleep;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Flywheel;
 import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Mecanum;
-import org.firstinspires.ftc.teamcode.RobotTank.Robot;
-
 public class JoystickBindings {
     public final Gamepad gamepad1;
     public JoystickBindings(Gamepad gamepad1) {
@@ -21,7 +19,22 @@ public class JoystickBindings {
         } else {
             robot.getRail().stop();
         }
-
+        if (gamepad1.right_bumper) {
+            for (int i = 0; i < 3; i++) {
+                robot.getRail().go();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                robot.getRail().stop();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
         if (gamepad1.left_trigger > 0.5) {
             robot.getFlywheel().shoot();
         } else if (gamepad1.x) {
