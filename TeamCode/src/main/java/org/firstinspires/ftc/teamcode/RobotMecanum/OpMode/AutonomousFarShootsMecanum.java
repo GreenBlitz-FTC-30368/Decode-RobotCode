@@ -13,6 +13,7 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
     abstract int getModifier();
     private RobotMecanum robot;
     private RobotFunctions robotFunctions;
+    private static final int SHOOT_AT_A_TIME = 3;
 
     private static final double tilesToMoveVertically = -4.5;
     private static final double tilesToMoveHorizontally = -1.5;
@@ -29,7 +30,7 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
 
         robot.getFlywheel().shoot();
         sleep(RobotConstants.wheelAccelerationTimeMS);
-        shootArtifacts(3);
+        shootArtifacts(SHOOT_AT_A_TIME);
         robot.getFlywheel().stop();
     }
     private void shootArtifacts(int n) {
