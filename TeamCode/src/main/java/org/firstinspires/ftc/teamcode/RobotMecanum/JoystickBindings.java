@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Flywheel;
 import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Mecanum;
-import org.firstinspires.ftc.teamcode.RobotTank.Robot;
+
 
 public class JoystickBindings {
     public final Gamepad gamepad1;
@@ -22,7 +22,7 @@ public class JoystickBindings {
             robot.getRail().stop();
         }
 
-        if (gamepad1.left_trigger > 0.5) {
+        if (gamepad1.b) {
             robot.getFlywheel().shoot();
         } else if (gamepad1.x) {
             robot.getRail().rewind();
@@ -51,6 +51,25 @@ public class JoystickBindings {
 //        } else {
 //            robot.getMecanum().velocityModifier = 1;
 //        }
+
+        if (gamepad1.left_trigger > 0.5) {
+            robot.getIntake().spin();
+        } else {
+            robot.getIntake().stop();
+        }
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
 
 }

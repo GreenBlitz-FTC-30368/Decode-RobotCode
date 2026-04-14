@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.RobotMecanum.JoystickBindings;
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
 import org.firstinspires.ftc.teamcode.RobotMecanum.Subsystems.Flywheel;
 
-@TeleOp(name="teleopMecanum")
+@TeleOp(name = "teleopMecanum")
 public class TeleopMecanum extends OpMode {
 
     private RobotMecanum robot;
@@ -23,7 +23,7 @@ public class TeleopMecanum extends OpMode {
     public void loop() {
         joystickBindings.mainJoystickButtons(robot);
         //telemetry.addData("RailMode", robot.getRail().getMode());
-        telemetry.addData("yaw",robot.getYaw());
+        telemetry.addData("yaw", robot.getYaw());
         telemetry.addData("expected flywheel speed", Flywheel.expectedVelocity);
         telemetry.addData("current velocity", robot.getFlywheel().getVelocity());
         telemetry.update();
