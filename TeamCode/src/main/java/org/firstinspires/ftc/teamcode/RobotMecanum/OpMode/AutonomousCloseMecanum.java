@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.RobotMecanum.RobotConstants;
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotFunctions;
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
 
-@Autonomous(name = "close auto mecanum")
+@Autonomous(name = "closeAutoMecanum")
 public class AutonomousCloseMecanum extends LinearOpMode {
     private static final int SHOOT_AT_A_TIME = 3;
     private RobotMecanum robot;
