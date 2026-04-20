@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.RobotMecanum.RobotConstants;
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotFunctions;
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
 
-@Autonomous(name = "far auto mecanum")
+@Autonomous(name = "")
 public class AutonomousFarMecanum extends LinearOpMode {
     private RobotMecanum robot;
     private final long timeToPositionBeforeTurn = 1500;

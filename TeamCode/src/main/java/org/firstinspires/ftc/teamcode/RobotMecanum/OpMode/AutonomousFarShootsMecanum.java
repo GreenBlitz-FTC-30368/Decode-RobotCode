@@ -14,9 +14,9 @@ public abstract class AutonomousFarShootsMecanum extends LinearOpMode {
     private RobotMecanum robot;
     private RobotFunctions robotFunctions;
     private static final int SHOOT_AT_A_TIME = 3;
-
     private static final double tilesToMoveVertically = -4.5;
     private static final double tilesToMoveHorizontally = -1.5;
+
     @Override
     public void runOpMode() {
         waitForStart();

@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.RobotMecanum.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.RobotMecanum.RobotConstants;
-@Autonomous(name="mecanum auto far red",group="far auto shoots")
+@Autonomous(name="MecanumFarRed",group="Auto Far Shoots")
 public class AutonomousFarRed extends AutonomousFarShootsMecanum{
     @Override
     int getModifier(){
