@@ -1,0 +1,22 @@
+package org.firstinspires.ftc.teamcode.RobotMecanum.OpMode;
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import org.firstinspires.ftc.teamcode.RobotMecanum.RobotConstants;
+import org.firstinspires.ftc.teamcode.RobotMecanum.RobotFunctions;
+import org.firstinspires.ftc.teamcode.RobotMecanum.RobotMecanum;
+
+@Autonomous(name = "")
+public class AutonomousFarMecanum extends LinearOpMode {
+    private RobotMecanum robot;
+    private final long timeToPositionBeforeTurn = 1500;
+
+    @Override
+    public void runOpMode() {
+        waitForStart();
+        robot = new RobotMecanum(hardwareMap);
+        RobotFunctions functions = new RobotFunctions(robot);
+        functions.moveWithXYCm(RobotConstants.tileSizeCm,0);
+    }
+}
